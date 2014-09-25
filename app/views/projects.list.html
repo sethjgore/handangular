@@ -1,0 +1,12 @@
+<div class="project-list--box is100vw ish30rem">
+  <li class="is__list--plain" ng-repeat="section in project.sections">
+    <a class="is__text--size--kilo projects--button"
+    ui-sref="projects.list.content({section: $index})"
+    >
+    {{section.title}}
+    </a>
+  </li>
+</div>
+<div>
+</div>
+<div ui-view></div>
