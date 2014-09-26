@@ -8,13 +8,18 @@
   @extend .p4
   @extend .is__text--center
   @extend .is__text--c-blue
+  @extend .is__this--transition
   text-decoration: none
   font-family: Avenir Next
   @extend .is__text--medium
 
+.projects--box
   &:hover, &:active
-    @extend .is__background--c-blue
-    @extend .is__text--c-white
+    .projects--button
+      transform: translateY(-3rem)
+      @extend .is__this--transition--fast
+      @extend .is__background--c-blue
+      @extend .is__text--c-white
 
 
 .projects--button-text

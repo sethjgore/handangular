@@ -1,12 +1,17 @@
-<div class="project-list--box is100vw ish30rem">
-  <li class="is__list--plain" ng-repeat="section in project.sections">
-    <a class="is__text--size--kilo projects--button"
-    ui-sref="projects.list.content({section: $index})"
+<div
+class="project-list--box is100vw ish30rem flex flex--stretch flex__direction--col"
+>
+   <li
+    class="flex__item project--box  flex flex--xy is__list--plain"
+    ng-repeat="section in project.sections"
     >
-    {{section.title}}
-    </a>
+      <a
+      class="is__text--size--milli projects--button"
+      ui-sref="projects.list.content({section: $index})"
+      >
+        {{section.title}}
+      </a>
+      <a ui-sref="projects.list.video({section:$index})"><img src="/images/icon-video.svg" class="ish1rem ml4"></a>
   </li>
 </div>
-<div>
-</div>
-<div ui-view></div>
+  <div ui-view></div>

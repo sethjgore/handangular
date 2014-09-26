@@ -1,7 +1,8 @@
-'use strict';
+  'use strict';
 
 var handangular = angular.module('handangular', [
   'ui.router',
+  'ngAnimate'
   ]);
 
 handangular.config(function ($stateProvider, $urlRouterProvider) {
@@ -46,7 +47,7 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
         }
       })
       .state('projects.list.video', {
-        url: '/video',
+        url: '/video/{section}',
         templateUrl: '/views/projects.list.video.html',
         controller: 'ProjectsCtrl'
 
