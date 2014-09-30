@@ -1,17 +1,20 @@
-<div
-class="project-list--box is100vw ish30rem flex flex--stretch flex__direction--col"
->
-   <li
-    class="flex__item project--box  flex flex--xy is__list--plain"
-    ng-repeat="section in project.sections"
-    >
-      <a
-      class="is__text--size--milli projects--button"
-      ui-sref="projects.list.content({section: $index})"
-      >
-        {{section.title}}
-      </a>
-      <a ui-sref="projects.list.video({section:$index})"><img src="/images/icon-video.svg" class="ish1rem ml4"></a>
-  </li>
+<div class="flex flex--stretch flex__direction--col">
+    <section class="ish30rem flex project--box-bg is50vw">
+        <li class="is--user-select flex__item project--box is__list--plain" ng-repeat="section in project.sections">
+            <a class="projects--button" ui-sref="projects.list.content({section: $index})">
+                <span class="is__text--size--milli">
+                    {{section.title}}
+                </span>
+            </a>
+            <!--<div>
+                {{section.content}}
+                <a ui-sref="projects.list.video({section:$index})">
+                    <img src="/images/icon-video.svg" class="ish1rem ml4">Watch video</a>
+            </div>-->
+
+        </li>
+    </section>
+    <section>
+
+    </section>
 </div>
-  <div ui-view></div>

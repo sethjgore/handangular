@@ -12,9 +12,10 @@
 	<array>
 		<string>AvenirNext-Regular</string>
 		<string>AvenirNext-Bold</string>
+		<string>Oxygen-Light</string>
 	</array>
 	<key>length</key>
-	<integer>606541</integer>
+	<integer>681461</integer>
 	<key>version</key>
 	<integer>37</integer>
 </dict>

@@ -1,6 +1,7 @@
 'use strict';
 
 handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
+
     $scope.projects = [
       {
         title: 'Research',
