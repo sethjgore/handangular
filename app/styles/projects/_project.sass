@@ -25,5 +25,25 @@
 .projects--button-text
 
 .project--box-bg
-  background: url('/images/hand-horz.jpg') no-repeat
+  background: url('/images/hand-horz.jpg') no-repeat -6rem
   background-size: contain
+
+.section-box.active
+  z-index: 3
+
+.section-link
+  @extend .is__text--c-blue
+  @extend .is__this--transition--fast
+  text-decoration: none
+  font-family: Avenir Next
+  @extend .is__text--medium
+
+.section-box__content
+  @extend .is__background--c-white
+
+.section-box
+  position: absolute
+  @extend .is__this--transition--fast
+  @extend .is--user-select
+  @extend .is__list--plain
+  @extend .m20
