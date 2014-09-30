@@ -21,9 +21,48 @@
       @extend .is__background--c-blue
       @extend .is__text--c-white
 
-
 .projects--button-text
 
 .project--box-bg
-  background: url('/images/hand-horz.jpg') no-repeat
+  background: url('/images/hand-horz.jpg') no-repeat -6rem
   background-size: contain
+
+.section-box.active
+  z-index: 3
+
+  .section-box__content
+    transform: translateX(0)
+    opacity: 1
+
+  .section-box__video
+    transform: translateX(-3rem)
+    opacity: 1
+
+.section-link
+  @extend .is__text--c-blue
+  @extend .is__this--transition--fast
+  text-decoration: none
+  font-family: Avenir Next
+  @extend .is__text--medium
+
+.section-box__content
+  @extend .is__this--transition--fast
+  transform: translateX(.4rem)
+  opacity: 0
+
+.section-box__video
+  @extend .is__this--transition--fast
+  position: absolute
+  transform: translateX(0) rotate(10deg)
+  opacity: 0
+  background: url('/images/icon-video.svg')
+  background-size: contain
+  height: 2rem
+  width: 2rem
+
+.section-box
+  position: absolute
+  @extend .is__this--transition--fast
+  @extend .is--user-select
+  @extend .is__list--plain
+  @extend .p20
