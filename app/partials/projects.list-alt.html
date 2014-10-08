@@ -1,0 +1,31 @@
+<div ui-view></div>
+<div class="flex flex--stretch">
+    <section class="ish30rem project--box-bg is60vw">
+        <li ng-style="{'transform' : 'translate3d({{section.coords.x}}rem, {{section.coords.y}}rem, 0rem)'}" ng-mouseenter="hover(section)" ng-mouseleave="hover(section)" ng-class="{active : section.show}" class="section-box" ng-repeat="section in project.sections">
+            <a class="section-box__video" ui-sref="projects.section({project: projectIndex, section:$index})"></a>
+
+            <a class="section-link" ui-sref="projects.section({project: projectIndex, section: $index})">
+                <span class="is__text--size--milli">
+                    {{section.title}}
+                </span>
+            </a>
+            <label for=locationX></label>
+            <!--<input
+              name=locationX
+              type=range
+              ng-model="section.coords.x" min=0 max=50 step=1>-->
+            <div class="section-box__content" ng-show="section.show">
+                {{section.content}}
+
+            </div>
+
+        </li>
+    </section>
+    <section class="flex__item m15 mt40">
+        <span class="is__text--size--micro">Project</span>
+        <h1 class="mt0 is__text--c-blue is__text--size--giga">{{project.title}}</h1>
+        <p class="">{{project.content}}</p>
+    </section>
+
+</div>
+<section></section>
