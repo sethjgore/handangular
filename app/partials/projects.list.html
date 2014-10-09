@@ -1,5 +1,5 @@
-<div class="project--box--gradient is80vh flex flex--stretch py20">
-    <section class="ish30rem project--box-bg is60vw">
+<div class="flex flex--stretch py20">
+    <section class="project--sections--box project--box-bg">
         <li ng-style="{'transform' : 'translate3d({{section.coords.x}}rem, {{section.coords.y}}rem, 0rem)'}" ng-mouseenter="hover(section); $state.go('projects.list.preview', {project: projectIndex, section: $index})" ng-mouseleave="hover(section)" ng-class="{active : section.show}" class="section-box" ng-repeat="section in project.sections">
             <a class="section-box__video" ui-sref="projects.section({project: projectIndex, section:$index})"></a>
 

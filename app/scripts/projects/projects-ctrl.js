@@ -27,7 +27,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '16',
+              x : '11',
               y : '1'
             }
           },
@@ -38,7 +38,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '27',
+              x : '23',
               y : '11'
             }
           },
@@ -49,7 +49,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '28',
+              x : '24',
               y : '16'
             }
           },
@@ -60,7 +60,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '25',
+              x : '21',
               y : '21'
             }
           },
@@ -71,7 +71,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '20',
+              x : '16',
               y : '26'
             }
           },
