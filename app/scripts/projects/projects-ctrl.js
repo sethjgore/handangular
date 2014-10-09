@@ -104,8 +104,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
       ];
 
       $scope.hover = function(node) {
-        return node.show = ! node.show;
-      }
+        return node.show = !node.show;
+      };
 
       $scope.project = $scope.projects[$stateParams.project];
       $scope.projectIndex = $stateParams.project;
@@ -113,7 +113,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
 
       if($stateParams.section){
         $scope.section = $scope.project.sections[$stateParams.section];
-      }
+      };
+
       console.log($stateParams);
 
 }]);

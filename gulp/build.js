@@ -1,5 +1,8 @@
 'use strict';
 
+
+//todo fix 'CANNOT FIND RELATIVE' error
+
 var gulp = require('gulp');
 
 var $ = require('gulp-load-plugins')({
@@ -34,11 +37,7 @@ gulp.task('partials', function () {
       spare: true,
       quotes: true
     }))
-    .pipe($.ngHtml2js({
-      moduleName: 'handangular',
-      prefix: 'partials/'
-    }))
-    .pipe(gulp.dest('.tmp/partials'))
+    .pipe(gulp.dest('dist/partials'))
     .pipe($.size());
 });
 
@@ -48,12 +47,6 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
   var assets;
 
   return gulp.src('app/*.html')
-    .pipe($.inject(gulp.src('.tmp/partials/**/*.js'), {
-      read: false,
-      starttag: '<!-- inject:partials -->',
-      addRootSlash: false,
-      addPrefix: '../'
-    }))
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
@@ -73,11 +66,6 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
 
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      interlaced: true
-    })))
     .pipe(gulp.dest('dist/images'))
     .pipe($.size());
 });
@@ -94,4 +82,4 @@ gulp.task('clean', function () {
   return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.rimraf());
 });
 
-gulp.task('build', ['html', 'partials', 'images', 'fonts']);
+gulp.task('build', ['html']);
