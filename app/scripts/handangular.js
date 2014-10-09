@@ -69,4 +69,4 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
 
 handangular.run(['$rootScope', '$state', function ($rootScope, $state) {
   $rootScope.$state = $state;
-}])
+}]);

@@ -21,14 +21,14 @@
         </li>
     </section>
     <section class="flex__item m15 mt40">
-        <div ng-mouseover="$state.go('projects.list', {project: projectIndex})">
-          <span class="is__text--size--micro">Project</span>
-          <h1 class="mt0 is__text--c-{{project.color}} is__text--size--giga">{{project.title}}</h1>
-          <p class="">{{project.content}}</p>
+        <div class="list--preview--ui-container">
+            <div ui-view class="ng-enter-right"></div>
         </div>
-    <div class="list--preview--ui-container">
-      <div ui-view class="ng-enter-right"></div>
-    </div>
+        <div>
+          <span class="is__text--size--micro">Project</span>
+          <h1 ng-mouseover="$state.go('projects.list', {project: projectIndex})" class="mt0 is__text--c-{{project.color}} is__text--size--giga">{{project.title}}</h1>
+          <p class="" ng-hide="$state.is('project.list.preview')">{{project.content}}</p>
+        </div>
     </section>
 </div>
 <section></section>

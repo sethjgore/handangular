@@ -1,3 +1,6 @@
+.handangular--container
+  min-width: 960px;
+
 .project-group
   background-size: cover
 
@@ -15,6 +18,9 @@
 
   &--gray
     @extend .is__text--c-gray
+
+  &--bg-clear
+    background: none
 
 .projects--box
   @extend .is__this--transition--fast
@@ -94,8 +100,8 @@
 
 .list--preview--ui-container
   position: absolute
-  top: 16rem
   @extend .mr15
+  transform: translateY(5rem)
 
 [ui-view].list--preview--box
   position: absolute
