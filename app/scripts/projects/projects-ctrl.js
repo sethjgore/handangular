@@ -16,8 +16,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '',
             show: false,
             coords: {
-              x : '999999',
-              y : '999999'
+              x : '0',
+              y : '0'
             }
           },
           {
