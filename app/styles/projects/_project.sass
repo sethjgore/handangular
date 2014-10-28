@@ -1,7 +1,7 @@
 .handangular--container
   width: 950px;
   overflow-x: hidden
-  min-height: 40rem
+  min-height: 32rem
   position: relative
 
   border-bottom-left-radius: .3rem
@@ -28,10 +28,12 @@
   &--bg-clear
     background: none
 
+
+
 .projects--box
   @extend .is__this--transition--fast
   overflow: hidden
-  height: 38rem
+  height: 30rem
   &:hover, &:active
     .projects--info
       transform: translateY(0)
@@ -58,8 +60,8 @@
   background-size: contain
 
 .project--sections--box
-  width: 60%
-  height: 30rem
+  width: 45%
+  height: 26rem
 
 .section-box.active
   z-index: 3
@@ -68,7 +70,7 @@
     transform: translateX(0)
     opacity: 1
 
-  .section-box__video
+  .section-box__icon--holder
     transform: translateX(-4rem) rotate(0deg)
     opacity: 1
 
@@ -87,27 +89,40 @@
   transform: translateX(.4rem)
   opacity: 0
 
-.section-box__video
+.section-box__icon--holder
   @extend .is__this--transition--fast
   position: absolute
   transform: translateX(-3rem) rotate(10deg)
   opacity: 0
-  background: url('../images/icon-video.svg') no-repeat
-  background-size: 2.5rem 2.5rem
   height: 2.5rem
   width: 2.5rem
 
+.section-box__icon
+  width: 100%
+  height: 100%
+
+  &.video
+    background: url('../images/icon-video.svg') no-repeat
+    background-size: 2.5rem 2.5rem
+
+  &.text
+    background: url('../images/icon-text.svg') no-repeat
+    background-size: 2.5rem 2.5rem
+
 .section--video
   @extend .is__background--c-darkgray
-  width: 60%
   height: 20rem
+
 
 .section-box
   position: absolute
   @extend .is__this--transition--fast
   @extend .is--user-select
   @extend .is__list--plain
-  @extend .p20
+  @extend .m20
+  @extend .ml0
+  @extend .mr0
+  @extend .px20
 
 .section--video--box
   align-content: stretch
@@ -116,7 +131,8 @@
 .list--preview--ui-container
   position: absolute
   @extend .mr15
-  transform: translateY(4rem)
+  transform: translateY(-1rem)
+  width: 430px;
 
 [ui-view].list--preview--box
   position: absolute
@@ -135,8 +151,8 @@
   @extend .px20
   @extend .pl40
 
-  &:hover
-    opacity: .4
+  //&:hover
+    //opacity: .4
 
 .list--preview__content
   @extend .py10

@@ -2,6 +2,11 @@
 
 handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
 
+
+    $scope.oppositeType = function(params){
+      return params == 'video' ? 'text' : 'video';
+    }
+
     $scope.projects = [
       {
         title: 'Research',
@@ -16,7 +21,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '',
             show: false,
             coords: {
-              x : '0',
+              x : '-3000',
               y : '0'
             }
           },
@@ -27,7 +32,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '11',
+              x : '5',
               y : '1'
             }
           },
@@ -38,8 +43,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '23',
-              y : '11'
+              x : '14',
+              y : '9'
             }
           },
           {
@@ -49,8 +54,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '24',
-              y : '16'
+              x : '14.5',
+              y : '12.9'
             }
           },
           {
@@ -60,8 +65,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '21',
-              y : '21'
+              x : '13',
+              y : '16.7'
             }
           },
           {
@@ -71,8 +76,8 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             video: '108370788',
             show: false,
             coords: {
-              x : '16',
-              y : '26'
+              x : '9',
+              y : '20.4'
             }
           },
         ]

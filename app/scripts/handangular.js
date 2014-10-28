@@ -41,12 +41,18 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'ProjectsCtrl',
       })
       .state('projects.list.preview', {
-        url: '/preview/{section}',
+        url: '/preview/{section}/{type}',
         templateUrl: 'partials/projects.list.preview.html',
         controller: 'ProjectsCtrl',
         resolve: {
           section: ['$stateParams', function($stateParams){
             return $stateParams.section;
+          }],
+          type: ['$stateParams', function($stateParams){
+            return $stateParams.type;
+          }],
+          project: ['$stateParams', function($stateParams){
+            return $stateParams.project;
           }]
         }
       })
@@ -67,6 +73,7 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
-handangular.run(['$rootScope', '$state', function ($rootScope, $state) {
+handangular.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
   $rootScope.$state = $state;
+   $rootScope.$stateParams = $stateParams;
 }]);

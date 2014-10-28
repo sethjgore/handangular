@@ -20,17 +20,17 @@
     </div>
 </div>
 
-<div class="px20 project--box--gradient flex flex--xsb">
+<div class="px20  flex flex--xsb">
     <h1></h1>
     <div class="flex flex--xy">
-        <div ng-show="$state.is('projects.section')" class="flex flex--xy">
+        <div ng-show="$state.is('projects.list.preview')" class="flex flex--xy">
 
             <a class="projects--button projects--button--bg-clear" ui-sref="projects.list({project: 0})"> Sections</a>
 
             <a class="projects--button projects--button--bg-clear" ui-sref="projects.index">Projects</a>
         </div>
 
-        <div ng-show="$state.includes('projects.list')" class="flex flex--xy">
+        <div ng-show="$state.is('projects.list')" class="flex flex--xy">
 
         <a class="projects--button projects--button--bg-clear" ui-sref="projects.index"> Projects</a>
         </div>
