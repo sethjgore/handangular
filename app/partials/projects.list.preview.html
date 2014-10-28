@@ -1,15 +1,17 @@
 <div class="ax">
     <div class="list--preview">
-        <a class="is__link--plain">
-            <div class="list--preview__header">
-                <h1>{{section.title}}
-                </h1>
-            </div>
-        </a>
+        <div class="list--preview__header flex flex--y flex--xsb">
+            <h1>{{section.title}}
+            </h1>
+            <a class="section-box__icon--holder"  ng-click="$state.go('projects.list.preview', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
+                <div class="section-box__icon text" ng-show="$stateParams.type == 'video'"></div><div class="section-box__icon video" ng-show="$stateParams.type == 'text'"></div>
+            </a>
+            <div class="list--preview__close is__text--size--micro is__text--c-graylt" ng-click="$state.go('^');">x</div>
+        </div>
 
         <div ng-hide="$stateParams.type == 'text'" class="section--video--box flex">
             <div class="section--video--box flex">
-                <iframe src="//player.vimeo.com/video/108370788?title=0&amp;byline=0&amp;portrait=0&amp;color=f0c000" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe ng-src="http://player.vimeo.com/video/58291553?title=0&amp;byline=0&amp;portrait=0&amp;color=f0c000" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
         </div>
         <div ng-hide="$stateParams.type == 'video'" class="list--preview__content">

@@ -7,10 +7,14 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
       return params == 'video' ? 'text' : 'video';
     }
 
+    $scope.getLink = function(token){
+      return 'http://player.vimeo.com/video/'+token+'?title=0&amp;byline=0&amp;portrait=0&amp;color=f0c000';
+    }
+
     $scope.projects = [
       {
-        title: 'Research',
-        subtitle: 'Some brief comment about the project',
+        name: 'Thomas Horejes',
+        subtitle: 'Demystifying Linguistic Bottlenecks',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         color: 'blue',
         sections: [
@@ -40,7 +44,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Methodology',
             subtitle: 'What we did',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '108370788',
+            video: '85852923',
             show: false,
             coords: {
               x : '14',
@@ -51,7 +55,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Data Collection',
             subtitle: 'Establishing our studies',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '108370788',
+            video: '104566183',
             show: false,
             coords: {
               x : '14.5',
@@ -62,7 +66,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Results/Discussion',
             subtitle: 'orem ipsum dolor sit amet',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '108370788',
+            video: 'housespecial/momentum',
             show: false,
             coords: {
               x : '13',
@@ -73,7 +77,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Further Research',
             subtitle: 'Lorem Ispum Dolor Sit Amet',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '108370788',
+            video: 'http://vimeo.com/58291553',
             show: false,
             coords: {
               x : '9',
@@ -83,26 +87,26 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
         ]
       },
       {
-        title: 'Growth',
-        subtitle: 'Some brief comment about the project',
+        name: 'Miako Rankin',
+        subtitle: 'Decoding Introductory Linguistics',
         content: 'Hello? How are you? I am doing fine.',
         color: 'blue',
       },
       {
-        title: 'Vision',
-        subtitle: 'Some brief comment about the project',
+        name: 'Kathleen Woods',
+        subtitle: 'Undergraduate Thesis Statements',
         content: 'Hello? How are you? I am doing fine.',
         color: 'bluedk',
       },
       {
-        title: 'Beliefs',
-        subtitle: 'Some brief comment about the project',
+        name: 'Kristin Mulrooney',
+        subtitle: 'Journey across Thresholds',
         content: 'Hello? How are you? I am doing fine.',
         color: 'green',
       },
       {
-        title: 'Goals',
-        subtitle: 'Some brief comment about the project',
+        name: 'Sharon Pajka',
+        subtitle: 'Defining "Place"',
         content: 'Hello? How are you? I am doing fine.',
         color: 'greendk',
       },
