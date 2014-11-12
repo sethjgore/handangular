@@ -23,18 +23,10 @@
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css({.tmp,app}) styles/ -->
-    <!-- bower:css -->
-    <!-- endbower -->
+    <!-- build:css({.tmp,app}) gallaudet-template/PreBuilt/gstli/main.css -->
+    <link rel="stylesheet" href="./gallaudet-template/PreBuilt/gstli/main.css">
     <!-- endbuild -->
 
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="./styles/main.css">
-    <!-- endbuild -->
-
-    <!-- build:js scripts/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
 	</head>
 	<body id="standard">
 		<div class="container">
@@ -158,12 +150,14 @@
 			</div><!-- /subheader -->
 			<div id="content" class=" span-24 curved_bottom dropshadow"><!--for dev: removed standard class. will need to encapsulate styling further-->
 				<div ng-app="handangular">
-					<div class=" project--box--gradient handangular--container container" ng-controller="MainCtrl">
+					<div class=" project--box--gradient handangular--container container" ng-controller="ProjectsCtrl">
 				    <section ui-view></section>
-				    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Open+Sans:400">
+				    <gstli-data ng-cloak>
+							<!--insert project data loops here. Angular will pull the content and push it through its templates-->
+				    <gstli-data>
 					</div>
 
-					<!-- build:js scripts/vendor.js -->
+					<!-- build:js gallaudet-template/PreBuilt/gstli/vendor.js -->
 					<!-- bower:js -->
 					<script src="bower_components/angular/angular.js"></script>
 					<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -171,10 +165,10 @@
 					<!-- endbower -->
 					<!-- endbuild -->
 
-					<!-- build:js({app,.tmp}) scripts/main.js -->
-					<script src="scripts/handangular.js"></script>
-					<script src="scripts/main/main-ctrl.js"></script>
-					<script src="scripts/projects/projects-ctrl.js"></script>
+					<!-- build:js({app,.tmp}) gallaudet-template/PreBuilt/gstli/main.js -->
+					<script src="./gallaudet-template/PreBuilt/gstli/gstli.js"></script>
+					<!-- inject:partials -->
+   			  <!-- endinject -->
 					<!-- endbuild -->
 
 				</div><!-- /ng-app -->

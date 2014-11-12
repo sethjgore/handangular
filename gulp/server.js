@@ -42,11 +42,11 @@ gulp.task('serve', ['watch'], function () {
     '.tmp'
   ], [
     'app/*.html',
-    'app/styles/**/*.css',
-    '.tmp/styles/**/*.css',
-    'app/scripts/**/*.js',
+    'app/gallaudet-template/PreBuilt/gstli/**/*.css',
+    '.tmp/gallaudet-template/PreBuilt/gstli/**/*.css',
+    'app/gallaudet-template/PreBuilt/gstli/**/*.js',
     'app/partials/**/*.html',
-    'app/images/**/*'
+    'app/gallaudet-template/Images/**/*'
   ]);
 });
 

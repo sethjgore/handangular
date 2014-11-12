@@ -23,11 +23,8 @@
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="styles/">
+    <link rel="stylesheet" href="gallaudet-template/PreBuilt/gstli/main.css">
 
-    <link rel="stylesheet" href="styles/main-ec890f61.css">
-
-    <script src="scripts/modernizr-c1ff1650.js"></script>
 	</head>
 	<body id="standard">
 		<div class="container">
@@ -151,14 +148,16 @@
 			</div><!-- /subheader -->
 			<div id="content" class=" span-24 curved_bottom dropshadow"><!--for dev: removed standard class. will need to encapsulate styling further-->
 				<div ng-app="handangular">
-					<div class=" project--box--gradient handangular--container container" ng-controller="MainCtrl">
+					<div class=" project--box--gradient handangular--container container" ng-controller="ProjectsCtrl">
 				    <section ui-view></section>
-				    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Open+Sans:400">
+				    <gstli-data ng-cloak>
+							<!--insert project data loops here. Angular will pull the content and push it through its templates-->
+				    <gstli-data>
 					</div>
 
-					<script src="scripts/vendor-3d07cd37.js"></script>
+					<script src="gallaudet-template/PreBuilt/gstli/vendor.js"></script>
 
-					<script src="scripts/main-17059944.js"></script>
+					<script src="gallaudet-template/PreBuilt/gstli/main.js"></script>
 
 				</div><!-- /ng-app -->
 			</div><!-- /content -->

@@ -15,16 +15,16 @@ function handleError(err) {
 }
 
 gulp.task('styles', function () {
-  return gulp.src('app/styles/*.scss')
+  return gulp.src('app/gallaudet-template/PreBuilt/gstli/main.scss')
     .pipe($.sass({style: 'expanded'}))
     .on('error', handleError)
     .pipe($.autoprefixer('last 1 version'))
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('.tmp/gallaudet-template/PreBuilt/gstli/'))
     .pipe($.size());
 });
 
 gulp.task('scripts', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/gallaudet-template/PreBuilt/gstli/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.size());
@@ -37,7 +37,12 @@ gulp.task('partials', function () {
       spare: true,
       quotes: true
     }))
-    .pipe(gulp.dest('dist/partials'))
+    .pipe($.ngHtml2js({
+      moduleName: 'handangular',
+      prefix: 'partials/'
+    }))
+    .pipe($.concat("partials.min.js"))
+    .pipe(gulp.dest('.tmp/partials'))
     .pipe($.size());
 });
 
@@ -47,8 +52,13 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
   var assets;
 
   return gulp.src('app/*.html')
+    .pipe($.inject(gulp.src('.tmp/**/*.js'), {
+      read: false,
+      starttag: '<!-- inject:partials -->',
+      addRootSlash: false,
+      addPrefix: '../'
+    }))
     .pipe(assets = $.useref.assets())
-    .pipe($.rev())
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
@@ -59,15 +69,32 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
     .pipe(cssFilter.restore())
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe($.revReplace())
     .pipe(gulp.dest('dist'))
     .pipe($.size());
 });
 
 gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
-    .pipe(gulp.dest('dist/images'))
-    .pipe($.size());gru
+  return gulp.src('app/gallaudet-template/Images/**/*')
+    .pipe(gulp.dest('dist/gallaudet-template/Images'))
+    .pipe($.size());
+});
+
+gulp.task('move-gallyblueprint', function () {
+  return gulp.src('app/gallaudet-template/PreBuilt/blueprint/**/*')
+    .pipe(gulp.dest('dist/gallaudet-template/PreBuilt/blueprint/'))
+    .pipe($.size());
+});
+
+gulp.task('move-gallyjquery', function () {
+  return gulp.src('app/gallaudet-template/PreBuilt/jquery/**/*')
+    .pipe(gulp.dest('dist/gallaudet-template/PreBuilt/jquery/'))
+    .pipe($.size());
+});
+
+gulp.task('move-gallycss', function () {
+  return gulp.src('app/gallaudet-template/PreBuilt/gallaudet.css')
+    .pipe(gulp.dest('dist/gallaudet-template/PreBuilt/'))
+    .pipe($.size());
 });
 
 gulp.task('fonts', function () {
@@ -82,4 +109,4 @@ gulp.task('clean', function () {
   return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.rimraf());
 });
 
-gulp.task('build', ['html']);
+gulp.task('build', ['html', 'images', 'move-gallycss', 'move-gallyjquery', 'move-gallyblueprint']);
