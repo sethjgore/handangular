@@ -3,7 +3,7 @@
         <div class="list--preview__header flex flex--y flex--xsb">
             <h1>{{section.title}}
             </h1>
-            <a class="section-box__icon--holder"  ng-click="$state.go('projects.list.preview', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
+            <a class="section-box__icon--holder"  ng-click="$state.go('projects.preview', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
                 <div class="section-box__icon text" ng-show="$stateParams.type == 'video'"></div><div class="section-box__icon video" ng-show="$stateParams.type == 'text'"></div>
             </a>
             <div class="list--preview__close is__text--size--micro is__text--c-graylt" ng-click="$state.go('^');">x</div>

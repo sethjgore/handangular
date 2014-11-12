@@ -113,17 +113,6 @@ projectpage.controller('ProjectsCtrl', ['$scope', function ($scope) {
 
 }]);
 
-
-
-
-
-
-
-
-
-
-
-
 var handangular = angular.module('handangular', [
   'ui.router',
   'ngAnimate'
@@ -131,21 +120,9 @@ var handangular = angular.module('handangular', [
 
 handangular.config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('projects');
-
     $stateProvider
       .state('projects', {
-        abstract: true,
-        url: '/projects',
-        templateUrl: 'partials/projects.html',
-      })
-      .state('projects.index', {
-        url:'',
-        templateUrl: 'partials/projects.index.html',
-        controller: 'ProjectsCtrl',
-      })
-      .state('projects.list', {
-        url: '/{project}',
+        url: '/project/{project}',
         templateUrl: 'partials/projects.list.html',
         controller: 'ProjectsCtrl',
         resolve: {
@@ -154,12 +131,12 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
           }]
         }
       })
-      .state('projects.list.index', {
+      .state('projects.index', {
         url: '',
         templateUrl: 'partials/projects.list.index.html',
         controller: 'ProjectsCtrl',
       })
-      .state('projects.list.preview', {
+      .state('projects.preview', {
         url: '/preview/{section}/{type}',
         templateUrl: 'partials/projects.list.preview.html',
         controller: 'ProjectsCtrl',
@@ -176,6 +153,7 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
         }
       });
 
+       $urlRouterProvider.otherwise('project/0');
 
 });
 
