@@ -163,7 +163,7 @@ handangular.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $
    $rootScope.$stateParams = $stateParams;
 }]);
 
-handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
+handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', function ($scope, $stateParams, $sce) {
 
 
     $scope.oppositeType = function(params){
@@ -171,7 +171,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
     }
 
     $scope.getLink = function(token){
-      return 'http://player.vimeo.com/video/'+token+'?title=0&amp;byline=0&amp;portrait=0&amp;color=f0c000';
+      return $sce.trustAsResourceUrl('//www.youtube.com/embed/'+token);
     }
 
     $scope.projects = [
@@ -196,7 +196,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Burning Question',
             subtitle: 'Questions that we wanted to ask',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '108370788',
+            video: '14SygX3V1gc',
             show: false,
             coords: {
               x : '5',
@@ -207,7 +207,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Methodology',
             subtitle: 'What we did',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '85852923',
+            video: '1YiQixF8so4',
             show: false,
             coords: {
               x : '14',
@@ -218,7 +218,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Data Collection',
             subtitle: 'Establishing our studies',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '104566183',
+            video: '253I2M_62T8',
             show: false,
             coords: {
               x : '14.5',
@@ -229,7 +229,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Results/Discussion',
             subtitle: 'orem ipsum dolor sit amet',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: 'housespecial/momentum',
+            video: 'WKwkawwzhBc',
             show: false,
             coords: {
               x : '13',
@@ -240,7 +240,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', function ($sco
             title: 'Further Research',
             subtitle: 'Lorem Ispum Dolor Sit Amet',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: 'http://vimeo.com/58291553',
+            video: 'eCr4hxCYE9I',
             show: false,
             coords: {
               x : '9',
