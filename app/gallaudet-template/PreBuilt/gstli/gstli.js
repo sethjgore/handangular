@@ -3,9 +3,7 @@
 
 var projectpage = angular.module('projectpage', []);
 
-projectpage.config(function(){
-  console.log(" i am here! ")
-});
+projectpage.config(function(){});
 
 projectpage.controller('ProjectsCtrl', ['$scope', function ($scope) {
 
@@ -16,99 +14,26 @@ projectpage.controller('ProjectsCtrl', ['$scope', function ($scope) {
         name: 'Thomas Horejes',
         subtitle: 'Demystifying Linguistic Bottlenecks',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        color: 'blue',
-        sections: [
-          {
-            title: '',
-            subtitle: '',
-            content: '',
-            video: '',
-            show: false,
-            coords: {
-              x : '-3000',
-              y : '0'
-            }
-          },
-          {
-            title: 'Burning Question',
-            subtitle: 'Questions that we wanted to ask',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '108370788',
-            show: false,
-            coords: {
-              x : '5',
-              y : '1'
-            }
-          },
-          {
-            title: 'Methodology',
-            subtitle: 'What we did',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '85852923',
-            show: false,
-            coords: {
-              x : '14',
-              y : '9'
-            }
-          },
-          {
-            title: 'Data Collection',
-            subtitle: 'Establishing our studies',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: '104566183',
-            show: false,
-            coords: {
-              x : '14.5',
-              y : '12.9'
-            }
-          },
-          {
-            title: 'Results/Discussion',
-            subtitle: 'orem ipsum dolor sit amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: 'housespecial/momentum',
-            show: false,
-            coords: {
-              x : '13',
-              y : '16.7'
-            }
-          },
-          {
-            title: 'Further Research',
-            subtitle: 'Lorem Ispum Dolor Sit Amet',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            video: 'http://vimeo.com/58291553',
-            show: false,
-            coords: {
-              x : '13',
-              y : '20.4'
-            }
-          },
-        ]
       },
       {
         name: 'Miako Rankin',
         subtitle: 'Decoding Introductory Linguistics',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'blue',
       },
       {
         name: 'Kathleen Woods',
         subtitle: 'Undergraduate Thesis Statements',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'bluedk',
       },
       {
         name: 'Kristin Mulrooney',
         subtitle: 'Journey across Thresholds',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'green',
       },
       {
         name: 'Sharon Pajka',
         subtitle: 'Defining "Place"',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'greendk',
       },
       ];
 
@@ -137,7 +62,7 @@ handangular.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'partials/projects.list.preview.html', // use template
         controller: 'ProjectsCtrl', // use this controller
         resolve: { // please resolve params into usable variables
-          dylan: /* the name of params */ ['$stateParams', function($stateParams){ // shares the $stateParams object to here
+          section: /* the name of params */ ['$stateParams', function($stateParams){ // shares the $stateParams object to here
             return $stateParams.section; // assign whatever was in section
           }],
           type: ['$stateParams', function($stateParams){
@@ -191,7 +116,6 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
         name: 'Thomas Horejes',
         subtitle: 'Demystifying Linguistic Bottlenecks',
         content: 'My project focuses on intermediate processes that reveal students’ knowledge.  The intermediate processes include the connection between prior knowledge (what they bring to the classroom) to “new” knowledge (how they develop academic knowledge in the classroom).  Students’ interpretation comes from them utilizing their various knowledge(s) to arrive at calculated conclusions about academic information being conveyed.  It is the goal of the proposal to reveal cultural displays of knowledge constructed within diverse ideologies of deaf educational practice and the larger understanding of deafness.  Once I capture the intermediate processes of student learning and interaction through their mediated knowledge(s), this gives me the opportunity to identify, document, and classify the different types of knowledge being processed.',
-        color: 'blue',
         video: '',
         sections: [
           {
@@ -199,7 +123,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
             title: '',
             subtitle: 'Demystifying Linguistic Bottlenecks',
             content: 'My project focuses on intermediate processes that reveal students’ knowledge.  The intermediate processes include the connection between prior knowledge (what they bring to the classroom) to “new” knowledge (how they develop academic knowledge in the classroom).  Students’ interpretation comes from them utilizing their various knowledge(s) to arrive at calculated conclusions about academic information being conveyed.  It is the goal of the proposal to reveal cultural displays of knowledge constructed within diverse ideologies of deaf educational practice and the larger understanding of deafness.  Once I capture the intermediate processes of student learning and interaction through their mediated knowledge(s), this gives me the opportunity to identify, document, and classify the different types of knowledge being processed.',
-            video: '',
+            video: 'U0sGbAHe4EY',
             show: false,
             coords: {
               x : '-3000',
@@ -213,7 +137,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
             video: '14SygX3V1gc',
             show: false,
             coords: {
-              x : '4',
+              x : '3',
               y : '1'
             }
           },
@@ -224,7 +148,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
             video: '1YiQixF8so4',
             show: false,
             coords: {
-              x : '13',
+              x : '12',
               y : '9'
             }
           },
@@ -235,7 +159,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
             video: '253I2M_62T8',
             show: false,
             coords: {
-              x : '12.8',
+              x : '12.5',
               y : '12.9'
             }
           },
@@ -246,7 +170,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
             video: 'WKwkawwzhBc',
             show: false,
             coords: {
-              x : '12',
+              x : '11',
               y : '16.7'
             }
           },
@@ -257,7 +181,7 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
             video: 'eCr4hxCYE9I',
             show: false,
             coords: {
-              x : '13',
+              x : '7',
               y : '20.4'
             }
           },
@@ -267,25 +191,21 @@ handangular.controller('ProjectsCtrl', ['$scope', '$stateParams', '$sce', functi
         name: 'Miako Rankin',
         subtitle: 'Decoding Introductory Linguistics',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'blue',
       },
       {
         name: 'Kathleen Woods',
         subtitle: 'Undergraduate Thesis Statements',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'bluedk',
       },
       {
         name: 'Kristin Mulrooney',
         subtitle: 'Journey across Thresholds',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'green',
       },
       {
         name: 'Sharon Pajka',
         subtitle: 'Defining "Place"',
         content: 'Hello? How are you? I am doing fine.',
-        color: 'greendk',
       },
       ];
 

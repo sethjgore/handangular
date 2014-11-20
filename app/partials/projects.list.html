@@ -10,12 +10,12 @@
         <div class="flex flex--xy">
             <div ng-show="$state.is('projects.preview')" class="flex flex--xy">
 
-                <a class="projects--button projects--button--bg-clear" ui-sref="projects({project: 0})"> Sections</a>
+                <a class="projects--button projects--button--bg-clear" ui-sref="projects.index({project: 0, section: '0', type: 'video'})"> Sections</a>
 
                 <a class="projects--button projects--button--bg-clear" href="projects.html">Projects</a>
             </div>
 
-            <div ng-show="$state.is('projects')" class="flex flex--xy">
+            <div ng-show="$state.is('projects.index')" class="flex flex--xy">
 
                 <a class="projects--button projects--button--bg-clear" href="projects.html"> Projects</a>
             </div>
@@ -34,10 +34,6 @@
                         {{section.title}}
                     </span>
                 </a>
-                <!--<input
-              name=locationX
-              type=range
-              ng-model="section.coords.x" min=0 max=50 step=1>-->
                 <div class="section-box__content" ng-show="section.show">
                     {{section.subtitle}}
 
@@ -45,14 +41,9 @@
 
             </li>
         </section>
-        <section class="flex__item m20 ml40 mt20">
+        <section class="flex__item m10 ml15 mt20">
             <div class="list--preview--ui-container">
                 <div ui-view class="ng-enter-right"></div>
-            </div>
-            <div class="filler" ng-hide="$state.is('projects.preview')">
-                <span class="is__text--size--micro">A Project by {{project.name}}</span>
-                <h1 class="mt0 is__text--c-{{project.color}} is__text--size--giga">{{project.subtitle}}</h1>
-                <p class="">{{project.content}}</p>
             </div>
         </section>
     </div>

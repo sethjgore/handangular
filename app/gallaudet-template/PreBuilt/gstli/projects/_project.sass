@@ -7,6 +7,9 @@
   border-bottom-left-radius: .3rem
   border-bottom-right-radius: .3rem
 
+[ng-app='projectpage'] .handangular--container
+  min-height: 30rem
+
 .project-group
   background-size: cover
 
@@ -18,7 +21,7 @@
   @extend .is__text--c-blue
   @extend .is__this--transition
   text-decoration: none
-  font-family: Avenir Next
+  font-family: Arial
   @extend .is__text--medium
 
 
@@ -28,7 +31,8 @@
   &--bg-clear
     background: none
 
-
+.filler
+  position: relative
 
 .projects--box
   @extend .is__this--transition--fast
@@ -74,7 +78,7 @@
   @extend .is__text--c-blue
   @extend .is__this--transition--fast
   text-decoration: none
-  font-family: Avenir Next
+  font-family: Arial
   @extend .is__text--medium
 
 .section-box__content
@@ -88,11 +92,19 @@
   transform: translate(-1.5rem, 1.8rem)
   height: 3rem
   width: 3rem
-  left: 0
   opacity: .7
 
   &:hover
     opacity: 1
+
+.list--index .section-box__icon--holder
+  top: 0
+  right: 0
+
+.list--preview .section-box__icon--holder
+  top: -.4rem
+  left: 0
+
 
 
 .section-box__icon
@@ -132,7 +144,7 @@
   position: absolute
   @extend .mr15
   transform: translateY(-1rem)
-  width: 430px;
+  width: 480px;
 
 [ui-view].list--preview--box
   position: absolute
@@ -157,7 +169,9 @@
 .list--preview__content
   @extend .py10
   @extend .px20
-  @extend .is__background--c-blue
-  @extend .is__text--c-white
+  @extend .is__background--c-white
+  @extend .is__text--c-gray
 
 
+.project--title
+  font-size: 2rem
