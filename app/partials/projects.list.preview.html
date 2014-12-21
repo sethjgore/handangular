@@ -1,12 +1,12 @@
 <div class="ax">
     <div class="list--preview">
-        <div class="list--preview__header flex flex--y flex--xsb">
-            <h1 class="mt15 mb15 is__text--c-blue">{{section.title}}
+        <div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb">
+            <h1 class="mt15 mb15 is__text--c-white">{{section.title}}
             </h1>
             <a class="section-box__icon--holder"  ng-click="$state.go('projects.preview', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
                 <div class="section-box__icon text" ng-show="$stateParams.type == 'video'"></div><div class="section-box__icon video" ng-show="$stateParams.type == 'text'"></div>
             </a>
-            <div class="list--preview__close is__text--size--micro is__text--c-graylt" ng-click="$state.go('projects.index', {project: projectIndex, section: '0', type: 'video'})">x</div>
+            <div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go('projects.index', {project: projectIndex, section: '0', type: 'video'})">✕</div>
         </div>
 
         <div ng-hide="$stateParams.type == 'text'" class="section--video--box flex">

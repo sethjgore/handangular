@@ -26,7 +26,7 @@
 
     <div class="flex flex--stretch py0 project--box--gradient ">
         <section class="project--sections--box project--box-bg">
-            <li ng-style="{'transform' : 'translate3d({{section.coords.x}}rem, {{section.coords.y}}rem, 0rem)'}" ng-mouseenter="hover(section); $state.go('projects.preview', {project: projectIndex, section: $index, type : 'video'})" ng-mouseleave="hover(section)" ng-class="{active : section.show}" class="section-box" ng-repeat="section in project.sections">
+            <li ng-style="{'transform' : 'translate3d({{section.coords.x}}rem, {{section.coords.y}}rem, 0rem)'}" ng-click="$state.go('projects.preview', {project: projectIndex, section: $index, type : 'video'})" ng-mouseenter="hover(section)" ng-mouseleave="hover(section)" ng-class="{active : section.show}" class="section-box" ng-repeat="section in project.sections">
 
 
                 <a class="section-link" ng-click="">

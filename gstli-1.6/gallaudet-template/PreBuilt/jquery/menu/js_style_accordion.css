@@ -1,0 +1,83 @@
+
+
+#accordion.p {
+  line-height: 1.5em;
+}
+
+/* --- Accordion Menu --*/
+
+ul#accordion{
+	padding: 0px;
+	margin: 0px;
+	width: 200px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: #fff 0px solid;
+	overflow: hidden;
+	}
+ul#menu, ul#menu ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+}
+
+ul#menu a {
+  display: block;
+  text-decoration: none;	
+}
+
+
+ul#menu li {
+  margin-top: 0;
+  margin-bottom: 1px; 
+}
+
+
+	
+ul#menu li a {
+  background: #4094ed;
+  color: #fff;	
+  padding: 0.5em;
+  display: inline-block;
+  width: 200px; /*width included because of inline-block, which without would reduce the width to the size of each link. */
+}
+
+ul#menu li a:hover {
+  background: #85cbfc;
+  color: 
+}
+
+ul#menu li ul li{
+margin-left: 10px;
+margin-right: 10px;
+  margin-top: 0px !important;
+}
+
+ul#menu ul  {
+margin: 0px;
+
+background: #eeeeee;
+}
+
+ul#menu li ul li a {
+background:#eeeeee;
+  color:#7a7a7a ;
+  padding-left: 20px;
+}
+
+ul#menu li ul li a:hover {
+background: #eeeeee;
+color: #000;
+	font-weight: bold;
+  padding-left: 15px;
+  border-radius: 0px !important;
+}
+
+	
+
+.code { border: 1px solid #ccc; list-style-type: decimal-leading-zero; padding: 5px; margin: 0; }
+.code code { display: block; padding: 3px; margin-bottom: 0; }
+.code li { background: #ddd; border: 1px solid #ccc; margin: 0 0 2px 2.2em; }
+.indent1 { padding-left: 1em; }
+.indent2 { padding-left: 2em; }
