@@ -167,8 +167,8 @@
             <!--for dev: removed standard class. will need to encapsulate styling further-->
 
             <!-- Start GSTLI GALLERY wrapper -->
-            <div ng-app="projectpage">
-                <div class="project--box--gradient handangular--container container" ng-controller="ProjectsCtrl">
+            <div ng-app="projectpage" ng-controller="ProjectsCtrl">
+                <div class="project--box--gradient handangular--container container">
                     <!-- Start GSTLI GALLERY overview -->
                     <div class="ax">
                         <dl class="flex isw100 m0 project-group" style="background-image: url('./gallaudet-template/images/gstli/project-group.jpg');">
@@ -178,7 +178,7 @@
                                 <!--<div class="projects--info"><h1>Go to Project {{p.title}}</h1></div>-->
                                 <dd>
                                     <h3 class="flex__item projects--button">
-                                        {{p.name}}
+                                        hello?
                                     </h3>
                                 </dd>
                             </a>
@@ -189,18 +189,18 @@
                 <!-- End GSTLI GALLERY wrapper-->
 
                 <!-- build:js gallaudet-template/PreBuilt/gstli/vendor.js -->
-                <!-- bower:js -->
-                <script src="bower_components/angular/angular.js"></script>
-                <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-                <script src="bower_components/angular-animate/angular-animate.js"></script>
-                <!-- endbower -->
-                <!-- endbuild -->
+                    <!-- bower:js -->
+                    <script src="bower_components/angular/angular.js"></script>
+                    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+                    <script src="bower_components/angular-animate/angular-animate.js"></script>
+                    <!-- endbower -->
+                    <!-- endbuild -->
 
                 <!-- build:js({app,.tmp}) gallaudet-template/PreBuilt/gstli/main.js -->
-                    <script src="./gallaudet-template/PreBuilt/gstli/gstli.js"></script>
-                    <!-- inject:partials -->
-              <!-- endinject -->
-                    <!-- endbuild -->
+                <script src="./gallaudet-template/PreBuilt/gstli/project.js"></script>
+                <!-- inject:partials -->
+                <!-- endinject -->
+                <!-- endbuild -->
 
             </div>
             <!-- /ng-app -->
