@@ -1,44 +1,5 @@
   'use strict';
 
-
-var projectpage = angular.module('projectpage', []);
-
-projectpage.config(function(){});
-
-projectpage.controller('ProjectsCtrl', ['$scope', function ($scope) {
-
-
-
-    $scope.projects = [
-      {
-        name: 'Thomas Horejes',
-        subtitle: 'Demystifying Linguistic Bottlenecks',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      },
-      {
-        name: 'Miako Rankin',
-        subtitle: 'Decoding Introductory Linguistics',
-        content: 'Hello? How are you? I am doing fine.',
-      },
-      {
-        name: 'Kathleen Woods',
-        subtitle: 'Undergraduate Thesis Statements',
-        content: 'Hello? How are you? I am doing fine.',
-      },
-      {
-        name: 'Kristin Mulrooney',
-        subtitle: 'Journey across Thresholds',
-        content: 'Hello? How are you? I am doing fine.',
-      },
-      {
-        name: 'Sharon Pajka',
-        subtitle: 'Defining "Place"',
-        content: 'Hello? How are you? I am doing fine.',
-      },
-      ];
-
-}]);
-
 var handangular = angular.module('handangular', [
   'ui.router',
   'ngAnimate'
