@@ -98,8 +98,9 @@ gulp.task('move-gallycss', function () {
 });
 
 gulp.task('merge-js', function () {
-  return gulp.src(['dist/gallaudet-template/PreBuilt/vendor.js', 'dist/gallaudet-template/PreBuilt/gstli/gstli.js', 'dist/gallaudet-template/PreBuilt/gstli/project.js'])
-    .pipe(gulp.dest('dist/gallaudet-template/PreBuilt/app.js'))
+  return gulp.src(['dist/gallaudet-template/PreBuilt/gstli/vendor.js', 'dist/gallaudet-template/PreBuilt/gstli/gstli.js', 'dist/gallaudet-template/PreBuilt/gstli/project.js'])
+    .pipe($.concat("app.js"))
+    .pipe(gulp.dest('dist/gallaudet-template/PreBuilt/gstli/'))
     .pipe($.size());
 });
 
