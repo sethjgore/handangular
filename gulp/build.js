@@ -97,6 +97,12 @@ gulp.task('move-gallycss', function () {
     .pipe($.size());
 });
 
+gulp.task('merge-js', function () {
+  return gulp.src(['dist/gallaudet-template/PreBuilt/vendor.js', 'dist/gallaudet-template/PreBuilt/gstli/gstli.js', 'dist/gallaudet-template/PreBuilt/gstli/project.js'])
+    .pipe(gulp.dest('dist/gallaudet-template/PreBuilt/app.js'))
+    .pipe($.size());
+});
+
 gulp.task('fonts', function () {
   return gulp.src($.mainBowerFiles())
     .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
@@ -109,4 +115,4 @@ gulp.task('clean', function () {
   return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.rimraf());
 });
 
-gulp.task('build', ['html', 'images', 'move-gallycss', 'move-gallyjquery', 'move-gallyblueprint']);
+gulp.task('build', ['html', 'images', 'move-gallycss', 'move-gallyjquery', 'move-gallyblueprint', 'merge-js']);
