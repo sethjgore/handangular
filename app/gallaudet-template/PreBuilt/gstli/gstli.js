@@ -107,20 +107,19 @@
               // if we are on the fourth childNode --> + project info
               else if (index == 3) {
 
-
-                  // targets children of current node
                   var sectionList = node.childNodes[1].children;
 
-                  $scope.projectsTemp[0]["title"] = "";
-                  $scope.projectsTemp[0]["subtitle"] = node.firstChild.data;
-                  $scope.projectsTemp[0]["content"] = sectionList[0].innerText;
-                  $scope.projectsTemp[0]["video"] = sectionList[1].innerText;
-                  $scope.projectsTemp[0]["coords"] =
-                        {
+                  $scope.projectsTemp[0].sections.push({
+                      "title": "",
+                      "subtitle": node.firstChild.data,
+                      "content": sectionList[0].innerText,
+                      "video": sectionList[1].innerText,
+                      "coords": {
                           "x": sectionList[2].innerText,
-                          "y": sectionList[3].innerText
-                        };
-                  $scope.projectsTemp[0]["show"] = false;
+                          "y": sectionList[3].innerText,
+                      },
+                      "show": false
+                  });
 
                   //log current node & confirm data is being pushed
                   //console.log(['this is the project info', node]);
@@ -134,7 +133,6 @@
                   var sectionList = node.childNodes[1].children;
 
                   console.log(sectionList[0].innerText);
-                  var o = {}
 
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
@@ -162,9 +160,9 @@
       console.log($scope.projects2);
       console.log($scope.projects)
 
-      //$scope.projects = $scope.projectsTemp;
+      $scope.projects = $scope.projectsTemp;
 
-      $scope.projects = [{
+      $scope.projects2 = [{
           name: 'Thomas Horejes',
           sections: [{
               name: 'Thomas Horejes',

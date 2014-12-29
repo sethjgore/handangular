@@ -26,6 +26,7 @@ projectpage.controller('ProjectsCtrl', ['$scope', function($scope) {
 
         if (node.nodeType == 1) {
             $scope.projects.push({
+                'link': node.firstChild.attributes[0].value,
                 'name': node.innerText
             });
 
