@@ -27371,7 +27371,6 @@ angular.module('ngAnimate', ['ng'])
 
 })(window, window.angular);
 
-
   'use strict';
 
   var handangular = angular.module('handangular', [
@@ -27455,7 +27454,7 @@ angular.module('ngAnimate', ['ng'])
 
       //if in iframe...
       if (frameElement.length == '1') {
-          [].forEach.call(document.querySelectorAll('iframe'),
+          [].forEach.call(frameElement,
               function fn(elem) {
                   console.log(elem.contentWindow.document.body.querySelector('#gstligallery_content ul').childNodes);
               });
