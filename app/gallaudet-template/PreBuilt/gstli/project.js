@@ -9,10 +9,10 @@ projectpage.controller('ProjectsCtrl', ['$scope', function($scope) {
     console.log("This is the project controller js");
 
     //retrieve #custom_template...
-    var prerenderedText = document.getElementById('custom_content');
+    var prerenderedText = document.getElementById('gstligallery_content');
 
     //retrieve #custom_treelist (staff names)
-    var staffList = document.querySelector('#custom_treelist ul').childNodes;
+    var staffList = document.querySelector('#gstligallery_treelist ul').childNodes;
 
     console.log(staffList);
 
