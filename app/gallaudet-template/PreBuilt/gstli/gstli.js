@@ -115,7 +115,7 @@
               // if we are on second childNode --> + name of the project creator
               if (index == 1) {
 
-                  console.log("we are on the first second node");
+                  console.log("we are on the second node");
 
                   $scope.projectsTemp[0]['name'] = node.innerText;
 
