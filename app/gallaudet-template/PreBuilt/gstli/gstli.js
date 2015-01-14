@@ -72,11 +72,20 @@
           return $sce.trustAsResourceUrl('//www.youtube.com/embed/' + token);
       }
 
-      //retrieve #custom_template...
-
       //retrieve #custom_treelist (staff names)
       var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
 
+      var frameElement = document.querySelectorAll('iframe[src*="blank"]');
+
+      console.log(['hello', frameElement.length, frameElement]);
+
+      //if in iframe...
+      if (frameElement.length == '1') {
+          [].forEach.call(document.querySelectorAll('iframe'),
+              function fn(elem) {
+                  console.log(elem.contentWindow.document.body.querySelector('#gstligallery_content ul').childNodes);
+              });
+      }
 
       //set up temporary project object
       //todo convert to scope.projects
@@ -84,12 +93,13 @@
       $scope.projectsTemp[0].sections = []
 
       //the coordinates for the hand
-       var handCoords = [
-         ['1.8', '1.5']
-        ,['12', '9']
-        ,['12', '12.6']
-        ,['11','16']
-        ,['7', '18.6']];
+      var handCoords = [
+          ['1.8', '1.5'],
+          ['12', '9'],
+          ['12', '12.6'],
+          ['11', '16'],
+          ['7', '18.6']
+      ];
 
       // loops through Content List
       for (var index = 0; index < contentList.length; ++index) {
