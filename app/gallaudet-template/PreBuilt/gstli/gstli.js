@@ -51,7 +51,7 @@
               }
           });
 
-      $urlRouterProvider.otherwise('project/0');
+      $urlRouterProvider.otherwise('project/0/0/video');
 
   });
 
@@ -75,7 +75,7 @@
       //retrieve #custom_template...
 
       //retrieve #custom_treelist (staff names)
-      var contentList = document.querySelector('#custom_clientcontent ul').childNodes;
+      var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
 
 
       //set up temporary project object
@@ -100,14 +100,14 @@
           if (node.nodeType == 1) {
 
               //check node , nodeType, childElementCount
-              console.log([node, node.nodeType, node.childElementCount]);
+              //console.log([node, node.nodeType, node.childElementCount]);
 
               // if we are on second childNode --> + name of the project creator
               if (index == 1) {
                   $scope.projectsTemp[0]['name'] = node.innerText;
 
                   //log current node & confirm data is pushed
-                  //console.log(["first element on list", $scope.projectsTemp, node.innerText]);
+                  ////console.log(["first element on list", $scope.projectsTemp, node.innerText]);
 
 
               }
@@ -117,7 +117,7 @@
 
                   var sectionList = node.childNodes[1].children;
 
-                  console.log(handCoords[index][0]);
+                  //console.log(handCoords[index][0]);
 
                   $scope.projectsTemp[0].sections.push({
                       "title": "",
@@ -132,7 +132,7 @@
                   });
 
                   //log current node & confirm data is being pushed
-                  //console.log(['this is the project info', node]);
+                  ////console.log(['this is the project info', node]);
 
               }
 
@@ -142,9 +142,9 @@
                   // targets children of current node
                   var sectionList = node.childNodes[1].children;
 
-                  console.log(sectionList[0].innerText);
+                  //console.log(sectionList[0].innerText);
 
-                  console.log($scope.handCoords);
+                  //console.log($scope.handCoords);
 
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
@@ -159,7 +159,7 @@
                   });
 
                   //log current node & confirm data is being pushed
-                  //console.log(["element has children so drilling down", $scope.projectsTemp, node.childNodes]);
+                  ////console.log(["element has children so drilling down", $scope.projectsTemp, node.childNodes]);
 
               }
 
@@ -169,8 +169,8 @@
 
 
 
-      console.log($scope.projects2);
-      console.log($scope.projects)
+      //console.log($scope.projects2);
+      //console.log($scope.projects)
 
       $scope.projects = $scope.projectsTemp;
 
