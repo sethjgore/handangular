@@ -81,7 +81,7 @@
 
       //if in iframe...
       if (frameElement.length == '1') {
-          [].forEach.call(document.querySelectorAll('iframe'),
+          [].forEach.call(frameElement,
               function fn(elem) {
                   console.log(elem.contentWindow.document.body.querySelector('#gstligallery_content ul').childNodes);
               });
