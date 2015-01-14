@@ -75,7 +75,7 @@
       //retrieve #custom_treelist (staff names)
       var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
 
-      var frameElement = document.querySelectorAll('iframe[src*="blank"]');
+      var frameElement = document.querySelectorAll('#PreviewFrame');
 
       console.log(['hello', frameElement.length, frameElement]);
 

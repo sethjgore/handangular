@@ -27604,7 +27604,7 @@ module.run(['$templateCache', function($templateCache) {
       //retrieve #custom_treelist (staff names)
       var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
 
-      var frameElement = document.querySelectorAll('iframe[src*="blank"]');
+      var frameElement = document.querySelectorAll('#PreviewFrame');
 
       console.log(['hello', frameElement.length, frameElement]);
 
@@ -27644,7 +27644,7 @@ module.run(['$templateCache', function($templateCache) {
               // if we are on second childNode --> + name of the project creator
               if (index == 1) {
 
-                  console.log("we are on the first second node");
+                  console.log("we are on the second node");
 
                   $scope.projectsTemp[0]['name'] = node.innerText;
 
