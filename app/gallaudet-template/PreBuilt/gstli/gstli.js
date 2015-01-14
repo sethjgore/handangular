@@ -110,20 +110,26 @@
           if (node.nodeType == 1) {
 
               //check node , nodeType, childElementCount
-              console.log([node, node.nodeType, node.childElementCount]);
+              console.log(["checking node...", node, node.nodeType, node.childElementCount]);
 
               // if we are on second childNode --> + name of the project creator
               if (index == 1) {
+
+                  console.log("we are on the first second node");
+
                   $scope.projectsTemp[0]['name'] = node.innerText;
 
                   //log current node & confirm data is pushed
-                  //console.log(["first element on list", $scope.projectsTemp, node.innerText]);
+                  console.log(["first element on list", $scope.projectsTemp, node.innerText]);
 
 
               }
 
               // if we are on the fourth childNode --> + project info
               else if (index == 3) {
+
+
+                  console.log("we are on the fourth node");
 
                   var sectionList = node.childNodes[1].children;
 
@@ -142,12 +148,14 @@
                   });
 
                   //log current node & confirm data is being pushed
-                  //console.log(['this is the project info', node]);
+                  console.log(['this is the project info', node]);
 
               }
 
               // if we are on any other node --> + info
               else {
+
+                console.log(["we are on the rest of nodes", "and we will run the following elements", node.childNodes[1].children, "in the following nodes of", node.childNodes]);
 
                   // targets children of current node
                   var sectionList = node.childNodes[1].children;
