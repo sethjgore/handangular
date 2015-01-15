@@ -27642,7 +27642,7 @@ module.run(['$templateCache', function($templateCache) {
               console.log(["checking node...", node, node.nodeType, node.childElementCount]);
 
               // if we are on second childNode --> + name of the project creator
-              if (index == 1) {
+              if (index == 0) {
 
                   console.log("we are on the second node");
 
