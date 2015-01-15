@@ -27685,11 +27685,7 @@ module.run(['$templateCache', function($templateCache) {
               else {
 
                  // targets children of current node
-                  var sectionList = node.children[1] ? node.children[1].children : node.children[0];
-
-                  console.log(sectionList[0].innerText);
-
-                  console.log(handCoords);
+                  var sectionList = node.children[0];
 
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
