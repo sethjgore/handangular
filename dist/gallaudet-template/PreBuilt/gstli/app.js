@@ -27641,7 +27641,7 @@ module.run(['$templateCache', function($templateCache) {
               //check node , nodeType, childElementCount
               console.log(["checking node with index of...", index, node, node.nodeType, node.childElementCount]);
 
-              // if we are on second childNode --> + name of the project creator
+              // if we are on second childNode --> name of the project creator
               if (index == 0) {
 
                   console.log("we are on the second node");
@@ -27654,7 +27654,7 @@ module.run(['$templateCache', function($templateCache) {
 
               }
 
-              // if we are on the fourth childNode --> + project info
+              // if we are on the second child --> project info
               else if (index == 1) {
 
 
@@ -27681,13 +27681,8 @@ module.run(['$templateCache', function($templateCache) {
 
               }
 
-              // if we are on any other node --> + info
-              else {
-
-                console.log(["we are on the rest of nodes", "and we will run the following elements", node.childNodes[1].children, "in the following nodes of", node.childNodes]);
-
                   // targets children of current node
-                  var sectionList = node.childNodes[1].children;
+                  var sectionList = if node.children[1] ? node.children[1].children : node.children[0];
 
                   console.log(sectionList[0].innerText);
 
@@ -27704,11 +27699,6 @@ module.run(['$templateCache', function($templateCache) {
                       },
                       "show": false
                   });
-
-                  //log current node & confirm data is being pushed
-                  //console.log(["element has children so drilling down", $scope.projectsTemp, node.childNodes]);
-
-              }
 
           }
 
