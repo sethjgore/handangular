@@ -27706,6 +27706,24 @@ module.run(['$templateCache', function($templateCache) {
 
       }
 
+      //move the breadcrumb
+
+      var moveBreadcrumbNode = function (){
+
+        var e = document.querySelector('#gstligallery_content');
+
+        var node = document.querySelector('#gstligallery_breadcrumb');
+        var fc = e.firstChild;
+
+        console.log(["---=", e, ">>>=---", node, "--=>>>?", fc]);
+
+        e.insertBefore(node, fc);
+        var f = e;
+
+        console.log(f.firstChild.classList.add('moved'));
+      }
+
+     moveBreadcrumbNode();
 
 
       console.log($scope.projects2);

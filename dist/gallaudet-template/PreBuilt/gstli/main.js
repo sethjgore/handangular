@@ -76,17 +76,6 @@
       //retrieve #custom_treelist (staff names)
       var contentList = document.querySelector('#gstligallery_clientcontent ul').children;
 
-      // var frameElement = document.querySelectorAll('#PreviewFrame');
-
-      /* console.log(['hello', frameElement.length, frameElement]);
-
-      //if in iframe...
-      if (frameElement.length == '1') {
-          [].forEach.call(frameElement,
-              function fn(elem) {
-                  console.log(elem.contentWindow.document.body.querySelector('#gstligallery_content ul').childNodes);
-              });
-      }*/
 
       //set up temporary project object
       //todo convert to scope.projects
@@ -177,6 +166,24 @@
 
       }
 
+      //move the breadcrumb
+
+      var moveBreadcrumbNode = function() {
+
+          var e = document.querySelector('#gstligallery_content');
+
+          var node = document.querySelector('#gstligallery_breadcrumb');
+          var fc = e.firstChild;
+
+          console.log(["---=", e, ">>>=---", node, "--=>>>?", fc]);
+
+          e.insertBefore(node, fc);
+          var f = e;
+
+          console.log(f.firstChild.classList.add('moved'));
+      }
+
+      moveBreadcrumbNode();
 
 
       console.log($scope.projects2);
@@ -197,6 +204,15 @@
       if ($stateParams.section) {
           $scope.section = $scope.project.sections[$stateParams.section];
       };
+
+      if ($scope.section) {
+
+          if ($scope.section["video"] == "") {
+              $stateParams.type = "text";
+          }
+          console.log($scope.section["video"]);
+          console.log("the section doesn't have any video link");
+      }
 
   }]);
 
@@ -292,7 +308,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/projects.list.preview.html',
-    '<div class="ax"><div class="list--preview"><div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb"><h1 class="mt15 mb15 is__text--c-white">{{section.title}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: \'0\', type: \'video\'})">✕</div></div><div ng-hide="$stateParams.type == \'text\'" class="section--video--box flex"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-hide="$stateParams.type == \'video\'" class="list--preview__content"><p>{{section.content}}</p></div></div></div>');
+    '<div class="ax"><div class="list--preview"><div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb"><h1 class="mt15 mb15 is__text--c-white">{{section.title}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon text" ng-show="section.video == \'\'">I am here</div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: \'0\', type: \'video\'})">✕</div></div><div ng-hide="$stateParams.type == \'text\'" class="section--video--box flex"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-hide="$stateParams.type == \'video\'" class="list--preview__content"><p>{{section.content}}</p></div></div></div>');
 }]);
 })();
 
