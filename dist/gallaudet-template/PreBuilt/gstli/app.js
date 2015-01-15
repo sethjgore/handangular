@@ -27682,7 +27682,7 @@ module.run(['$templateCache', function($templateCache) {
               }
 
                   // targets children of current node
-                  var sectionList = if node.children[1] ? node.children[1].children : node.children[0];
+                  var sectionList = node.children[1] ? node.children[1].children : node.children[0];
 
                   console.log(sectionList[0].innerText);
 
