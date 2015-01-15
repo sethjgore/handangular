@@ -144,34 +144,52 @@
 
               // if we are on any other node --> section info
               else {
-
                   // targets children of current node
                   var sectionList = node.children[0].children;
+                  var mediaLink = "video";
 
-                  $scope.projectsTemp[0].sections.push({
-                      "title": node.firstChild.data,
-                      "subtitle": sectionList[0].innerText,
-                      "content": sectionList[1].innerText,
-                      "video": sectionList[2].innerText,
-                      "coords": {
-                          "x": sectionList[3].innerText,
-                          "y": sectionList[4].innerText,
-                      },
-                      "show": false
-                  });
+                  console.log(["section.video is empty  ", sectionList[2].innerText == ""])
+                  console.log(["section.content is empty  ", sectionList[1].innerText == ""])
 
-              }
+                  if (sectionList[2].innerText == "" && sectionList[1].innerText == ""){
+                    mediaLink = "";
+
+                  }
+                  else if (sectionList[2].innerText == "") {
+                    mediaLink = "textonly";
+                  }
+                  else if (sectionList[1].innerText == "") {
+                    mediaLink = "videoonly";
+                  }
+
+
+
+              $scope.projectsTemp[0].sections.push({
+                  "title": node.firstChild.data,
+                  "subtitle": sectionList[0].innerText,
+                  "content": sectionList[1].innerText,
+                  "video": sectionList[2].innerText,
+                  "mediaLink": mediaLink,
+                  "coords": {
+                      "x": sectionList[3].innerText,
+                      "y": sectionList[4].innerText,
+                  },
+                  "show": false
+              });
 
           }
 
       }
 
-      //move the breadcrumb
+  }
 
-      var moveBreadcrumbNode = function() {
+  //move the breadcrumb
 
-          var e = document.querySelector('#gstligallery_content');
+  var moveBreadcrumbNode = function() {
 
+      var e = document.querySelector('#gstligallery_content');
+
+      if (document.querySelector('#gstligallery_breadcrumb')) {
           var node = document.querySelector('#gstligallery_breadcrumb');
           var fc = e.firstChild;
 
@@ -182,37 +200,29 @@
 
           console.log(f.firstChild.classList.add('moved'));
       }
+  }
 
-      moveBreadcrumbNode();
+  moveBreadcrumbNode();
 
 
-      console.log($scope.projects2);
-      console.log($scope.projects)
+  console.log($scope.projects2);
+  console.log($scope.projects)
 
-      $scope.projects = $scope.projectsTemp;
+  $scope.projects = $scope.projectsTemp;
 
-      $scope.hover = function(node) {
-          return node.show = !node.show;
-      };
+  $scope.hover = function(node) {
+      return node.show = !node.show;
+  };
 
-      $scope.type = 'video';
+  $scope.type = 'video';
 
-      $scope.project = $scope.projects[$stateParams.project];
-      $scope.projectIndex = $stateParams.project;
-      $scope.sectionIndex = $stateParams.section;
+  $scope.project = $scope.projects[$stateParams.project];
+  $scope.projectIndex = $stateParams.project;
+  $scope.sectionIndex = $stateParams.section;
 
-      if ($stateParams.section) {
-          $scope.section = $scope.project.sections[$stateParams.section];
-      };
-
-      if ($scope.section) {
-
-          if ($scope.section["video"] == "") {
-              $stateParams.type = "text";
-          }
-          console.log($scope.section["video"]);
-          console.log("the section doesn't have any video link");
-      }
+  if ($stateParams.section) {
+      $scope.section = $scope.project.sections[$stateParams.section];
+  };
 
   }]);
 
@@ -284,7 +294,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/projects.list.html',
-    '<div class="is__this--relative"><div ng-hide="true" class="px20 flex flex--xsb header--box"><h1 class="is__text--c-blue">GSTLI</h1><div class="flex flex--xy"></div></div><div class="flex flex--stretch py0 project--box--gradient "><section class="project--sections--box project--box-bg"><li ng-style="{\'transform\' : \'translate3d({{section.coords.x}}rem, {{section.coords.y}}rem, 0rem)\'}" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $index, type : \'video\'})" ng-mouseenter="hover(section)" ng-mouseleave="hover(section)" ng-class="{active : section.show}" class="section-box" ng-repeat="section in project.sections"><a class="section-link" ng-click=""><span class="is__text--size--milli">{{section.title}}</span></a><div class="section-box__content" ng-show="section.show">{{section.subtitle}}</div></li></section><section class="flex__item m10 ml15 mt20"><div class="list--preview--ui-container"><div ui-view="" class="ng-enter-right"></div></div></section></div></div>');
+    '<div class="is__this--relative"><div ng-hide="true" class="px20 flex flex--xsb header--box"><h1 class="is__text--c-blue">GSTLI</h1><div class="flex flex--xy"></div></div><div class="flex flex--stretch py0 project--box--gradient "><section class="project--sections--box project--box-bg"><li ng-style="{\'transform\' : \'translate3d({{section.coords.x}}rem, {{section.coords.y}}rem, 0rem)\'}" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $index, type : section.mediaLink})" ng-mouseenter="hover(section)" ng-mouseleave="hover(section)" ng-class="{active : section.show}" class="section-box" ng-repeat="section in project.sections"><a class="section-link" ng-click=""><span class="is__text--size--milli">{{section.title}}</span></a><div class="section-box__content" ng-show="section.show">{{section.subtitle}}</div></li></section><section class="flex__item m10 ml15 mt20"><div class="list--preview--ui-container"><div ui-view="" class="ng-enter-right"></div></div></section></div></div>');
 }]);
 })();
 
@@ -308,7 +318,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/projects.list.preview.html',
-    '<div class="ax"><div class="list--preview"><div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb"><h1 class="mt15 mb15 is__text--c-white">{{section.title}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon text" ng-show="section.video == \'\'">I am here</div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: \'0\', type: \'video\'})">✕</div></div><div ng-hide="$stateParams.type == \'text\'" class="section--video--box flex"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-hide="$stateParams.type == \'video\'" class="list--preview__content"><p>{{section.content}}</p></div></div></div>');
+    '<div class="ax"><div class="list--preview"><div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb"><h1 class="mt15 mb15 is__text--c-white">{{section.title}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: \'0\', type: \'video\'})">✕</div></div><div ng-show="$stateParams.type == \'video\';" class="section--video--box flex"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-show="$stateParams.type == \'videoonly\';" class="section--video--box flex"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-show="$stateParams.type == \'text\';" class="list--preview__content"><p>{{section.content}}</p></div><div ng-show="$stateParams.type == \'textonly\';" class="list--preview__content"><p>{{section.content}}</p></div><div ng-show="$stateParams.type == \'\'" class="list--preview__content"><h2>Oops!</h2><p class="list--preview__nomedia">We haven\'t uploaded any content just yet. Coming soon, though!</p></div></div></div>');
 }]);
 })();
 

@@ -144,34 +144,52 @@
 
               // if we are on any other node --> section info
               else {
-
                   // targets children of current node
                   var sectionList = node.children[0].children;
+                  var mediaLink = "video";
 
-                  $scope.projectsTemp[0].sections.push({
-                      "title": node.firstChild.data,
-                      "subtitle": sectionList[0].innerText,
-                      "content": sectionList[1].innerText,
-                      "video": sectionList[2].innerText,
-                      "coords": {
-                          "x": sectionList[3].innerText,
-                          "y": sectionList[4].innerText,
-                      },
-                      "show": false
-                  });
+                  console.log(["section.video is empty  ", sectionList[2].innerText == ""])
+                  console.log(["section.content is empty  ", sectionList[1].innerText == ""])
 
-              }
+                  if (sectionList[2].innerText == "" && sectionList[1].innerText == ""){
+                    mediaLink = "";
+
+                  }
+                  else if (sectionList[2].innerText == "") {
+                    mediaLink = "textonly";
+                  }
+                  else if (sectionList[1].innerText == "") {
+                    mediaLink = "videoonly";
+                  }
+
+
+
+              $scope.projectsTemp[0].sections.push({
+                  "title": node.firstChild.data,
+                  "subtitle": sectionList[0].innerText,
+                  "content": sectionList[1].innerText,
+                  "video": sectionList[2].innerText,
+                  "mediaLink": mediaLink,
+                  "coords": {
+                      "x": sectionList[3].innerText,
+                      "y": sectionList[4].innerText,
+                  },
+                  "show": false
+              });
 
           }
 
       }
 
-      //move the breadcrumb
+  }
 
-      var moveBreadcrumbNode = function() {
+  //move the breadcrumb
 
-          var e = document.querySelector('#gstligallery_content');
+  var moveBreadcrumbNode = function() {
 
+      var e = document.querySelector('#gstligallery_content');
+
+      if (document.querySelector('#gstligallery_breadcrumb')) {
           var node = document.querySelector('#gstligallery_breadcrumb');
           var fc = e.firstChild;
 
@@ -182,35 +200,28 @@
 
           console.log(f.firstChild.classList.add('moved'));
       }
+  }
 
-      moveBreadcrumbNode();
+  moveBreadcrumbNode();
 
 
-      console.log($scope.projects2);
-      console.log($scope.projects)
+  console.log($scope.projects2);
+  console.log($scope.projects)
 
-      $scope.projects = $scope.projectsTemp;
+  $scope.projects = $scope.projectsTemp;
 
-      $scope.hover = function(node) {
-          return node.show = !node.show;
-      };
+  $scope.hover = function(node) {
+      return node.show = !node.show;
+  };
 
-      $scope.type = 'video';
+  $scope.type = 'video';
 
-      $scope.project = $scope.projects[$stateParams.project];
-      $scope.projectIndex = $stateParams.project;
-      $scope.sectionIndex = $stateParams.section;
+  $scope.project = $scope.projects[$stateParams.project];
+  $scope.projectIndex = $stateParams.project;
+  $scope.sectionIndex = $stateParams.section;
 
-      if ($stateParams.section) {
-          $scope.section = $scope.project.sections[$stateParams.section];
-      };
-
-      if ($scope.section) {
-
-          if ($scope.section["video"] == "") {
-          }
-          console.log($scope.section["video"]);
-          console.log("the section doesn't have any video link");
-      }
+  if ($stateParams.section) {
+      $scope.section = $scope.project.sections[$stateParams.section];
+  };
 
   }]);

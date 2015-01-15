@@ -5,18 +5,36 @@
             </h1>
             <a class="section-box__icon--holder"  ng-click="$state.go('projects.preview', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
                 <div class="section-box__icon text" ng-show="$stateParams.type == 'video'"></div>
-                <div class="section-box__icon text" ng-show="section.video == ''">I am here</div>
                 <div class="section-box__icon video" ng-show="$stateParams.type == 'text'"></div>
             </a>
             <div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go('projects.index', {project: projectIndex, section: '0', type: 'video'})">✕</div>
         </div>
 
-        <div ng-hide="$stateParams.type == 'text'" class="section--video--box flex">
+        <div ng-show="$stateParams.type == 'video';" class="section--video--box flex">
             <div class="section--video--box flex">
                 <iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
         </div>
-        <div ng-hide="$stateParams.type == 'video'" class="list--preview__content">
+
+        <div ng-show="$stateParams.type == 'videoonly';" class="section--video--box flex">
+            <div class="section--video--box flex">
+                <iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div ng-show="$stateParams.type == 'text';" class="list--preview__content">
             <p>{{section.content}}</p>
+        </div>
+
+        <div ng-show="$stateParams.type == 'textonly';" class="list--preview__content">
+            <p>{{section.content}}</p>
+        </div>
+
+        <div ng-show="$stateParams.type == ''" class="list--preview__content">
+            <h2>
+                Oops!
+            </h2>
+            <p class="list--preview__nomedia">
+                We haven't uploaded any content just yet. Coming soon, though! </p>
         </div>
     </div>
