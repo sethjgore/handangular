@@ -27636,7 +27636,7 @@ module.run(['$templateCache', function($templateCache) {
           //reuse current node
           var node = contentList[index];
           //if node is a HTML Element (nodeType = 1), proceed
-          if (node.nodeType == 0) {
+          if (node.nodeType == 1) {
 
               //check node , nodeType, childElementCount
               console.log(["checking node...", node, node.nodeType, node.childElementCount]);
