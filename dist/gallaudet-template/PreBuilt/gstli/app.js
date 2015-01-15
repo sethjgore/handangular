@@ -27602,7 +27602,7 @@ module.run(['$templateCache', function($templateCache) {
       }
 
       //retrieve #custom_treelist (staff names)
-      var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
+      var contentList = document.querySelector('#gstligallery_clientcontent ul').children;
 
       // var frameElement = document.querySelectorAll('#PreviewFrame');
 
@@ -27691,7 +27691,7 @@ module.run(['$templateCache', function($templateCache) {
 
                   console.log(sectionList[0].innerText);
 
-                  console.log($scope.handCoords);
+                  console.log(handCoords);
 
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
