@@ -122,14 +122,28 @@
                   console.log("we are on the fourth node");
 
                   var sectionList = node.childNodes[1].children;
+                  var mediaLink = "video";
 
-                  console.log(handCoords[index][0]);
+                  console.log(["section.video is empty ", sectionList[1].innerText == ""])
+                  console.log(["section.content is empty  ", sectionList[0].innerText == ""])
+
+                  if (sectionList[1].innerText == "" && sectionList[0].innerText == ""){
+                    mediaLink = "";
+
+                  }
+                  else if (sectionList[1].innerText == "") {
+                    mediaLink = "textonly";
+                  }
+                  else if (sectionList[0].innerText == "") {
+                    mediaLink = "videoonly";
+                  }
 
                   $scope.projectsTemp[0].sections.push({
                       "title": "",
                       "subtitle": node.firstChild.data,
                       "content": sectionList[0].innerText,
                       "video": sectionList[1].innerText,
+                      "mediaLink": mediaLink,
                       "coords": {
                           "x": handCoords[index][0],
                           "y": handCoords[index][1],

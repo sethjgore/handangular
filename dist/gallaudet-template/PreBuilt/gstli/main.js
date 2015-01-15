@@ -122,14 +122,28 @@
                   console.log("we are on the fourth node");
 
                   var sectionList = node.childNodes[1].children;
+                  var mediaLink = "video";
 
-                  console.log(handCoords[index][0]);
+                  console.log(["section.video is empty ", sectionList[1].innerText == ""])
+                  console.log(["section.content is empty  ", sectionList[0].innerText == ""])
+
+                  if (sectionList[1].innerText == "" && sectionList[0].innerText == ""){
+                    mediaLink = "";
+
+                  }
+                  else if (sectionList[1].innerText == "") {
+                    mediaLink = "textonly";
+                  }
+                  else if (sectionList[0].innerText == "") {
+                    mediaLink = "videoonly";
+                  }
 
                   $scope.projectsTemp[0].sections.push({
                       "title": "",
                       "subtitle": node.firstChild.data,
                       "content": sectionList[0].innerText,
                       "video": sectionList[1].innerText,
+                      "mediaLink": mediaLink,
                       "coords": {
                           "x": handCoords[index][0],
                           "y": handCoords[index][1],
@@ -306,7 +320,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/projects.list.index.html',
-    '<div class="filler ng-enter-right list--index" ng-hide="$state.is(\'projects.preview\')"><span class="is__text--size--micro">A Project by {{section.name}}</span><h1 class="mt0 is__text--c-blue project--title">{{section.subtitle}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div ng-hide="$stateParams.type == \'text\'" class="section--video--box flex"><iframe ng-hide="type == \'text\'" ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div><p ng-hide="$stateParams.type == \'video\'">{{section.content}}</p></div>');
+    '<div class="filler ng-enter-right list--index" ng-hide="$state.is(\'projects.preview\')"><span class="is__text--size--micro">A Project by {{section.name}}</span><h1 class="mt0 is__text--c-blue project--title">{{section.subtitle}}</h1><a class="section-box__icon--holder" ng-hide="section.mediaLink == \'videoonly\'" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div ng-hide="$stateParams.type == \'text\'" class="section--video--box flex"><iframe ng-hide="type == \'text\'" ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div><p ng-hide="$stateParams.type == \'video\'">{{section.content}}</p></div>');
 }]);
 })();
 

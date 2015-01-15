@@ -3,7 +3,7 @@
     <h1 class="mt0 is__text--c-blue project--title">{{section.subtitle}}</h1>
 
 
-    <a class="section-box__icon--holder" ng-click="$state.go('projects.index', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
+    <a class="section-box__icon--holder" ng-hide="section.mediaLink == 'videoonly'" ng-click="$state.go('projects.index', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : 'false'})">
         <div class="section-box__icon text" ng-show="$stateParams.type == 'video'"></div>
         <div class="section-box__icon video" ng-show="$stateParams.type == 'text'"></div>
     </a>
