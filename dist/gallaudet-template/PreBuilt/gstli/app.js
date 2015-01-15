@@ -27604,9 +27604,9 @@ module.run(['$templateCache', function($templateCache) {
       //retrieve #custom_treelist (staff names)
       var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
 
-      var frameElement = document.querySelectorAll('#PreviewFrame');
+      // var frameElement = document.querySelectorAll('#PreviewFrame');
 
-      console.log(['hello', frameElement.length, frameElement]);
+      /* console.log(['hello', frameElement.length, frameElement]);
 
       //if in iframe...
       if (frameElement.length == '1') {
@@ -27614,7 +27614,7 @@ module.run(['$templateCache', function($templateCache) {
               function fn(elem) {
                   console.log(elem.contentWindow.document.body.querySelector('#gstligallery_content ul').childNodes);
               });
-      }
+      }*/
 
       //set up temporary project object
       //todo convert to scope.projects
