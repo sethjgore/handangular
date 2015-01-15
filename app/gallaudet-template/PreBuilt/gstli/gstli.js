@@ -157,7 +157,7 @@
               else {
 
                   // targets children of current node
-                  var sectionList = node.children[0];
+                  var sectionList = node.children[0].children;
 
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,

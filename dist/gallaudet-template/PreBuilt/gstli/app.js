@@ -27601,12 +27601,13 @@ module.run(['$templateCache', function($templateCache) {
           return $sce.trustAsResourceUrl('//www.youtube.com/embed/' + token);
       }
 
+
       //retrieve #custom_treelist (staff names)
-      var contentList = document.querySelector('#gstligallery_clientcontent ul').childNodes;
+      var contentList = document.querySelector('#gstligallery_clientcontent ul').children;
 
-      var frameElement = document.querySelectorAll('#PreviewFrame');
+      // var frameElement = document.querySelectorAll('#PreviewFrame');
 
-      console.log(['hello', frameElement.length, frameElement]);
+      /* console.log(['hello', frameElement.length, frameElement]);
 
       //if in iframe...
       if (frameElement.length == '1') {
@@ -27614,7 +27615,7 @@ module.run(['$templateCache', function($templateCache) {
               function fn(elem) {
                   console.log(elem.contentWindow.document.body.querySelector('#gstligallery_content ul').childNodes);
               });
-      }
+      }*/
 
       //set up temporary project object
       //todo convert to scope.projects
@@ -27639,9 +27640,9 @@ module.run(['$templateCache', function($templateCache) {
           if (node.nodeType == 1) {
 
               //check node , nodeType, childElementCount
-              console.log(["checking node...", node, node.nodeType, node.childElementCount]);
+              console.log(["checking node with index of...", index, node, node.nodeType, node.childElementCount]);
 
-              // if we are on second childNode --> + name of the project creator
+              // if we are on second childNode --> name of the project creator
               if (index == 0) {
 
                   console.log("we are on the second node");
@@ -27654,7 +27655,7 @@ module.run(['$templateCache', function($templateCache) {
 
               }
 
-              // if we are on the fourth childNode --> + project info
+              // if we are on the second child --> project info
               else if (index == 1) {
 
 
@@ -27681,17 +27682,11 @@ module.run(['$templateCache', function($templateCache) {
 
               }
 
-              // if we are on any other node --> + info
+              // if we are on any other node --> section info
               else {
 
-                console.log(["we are on the rest of nodes", "and we will run the following elements", node.childNodes[1].children, "in the following nodes of", node.childNodes]);
-
                   // targets children of current node
-                  var sectionList = node.childNodes[1].children;
-
-                  console.log(sectionList[0].innerText);
-
-                  console.log($scope.handCoords);
+                  var sectionList = node.children[0].children;
 
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
@@ -27704,9 +27699,6 @@ module.run(['$templateCache', function($templateCache) {
                       },
                       "show": false
                   });
-
-                  //log current node & confirm data is being pushed
-                  //console.log(["element has children so drilling down", $scope.projectsTemp, node.childNodes]);
 
               }
 
