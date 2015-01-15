@@ -113,7 +113,7 @@
               console.log(["checking node...", node, node.nodeType, node.childElementCount]);
 
               // if we are on second childNode --> + name of the project creator
-              if (index == 1) {
+              if (index == 0) {
 
                   console.log("we are on the second node");
 
@@ -126,7 +126,7 @@
               }
 
               // if we are on the fourth childNode --> + project info
-              else if (index == 3) {
+              else if (index == 1) {
 
 
                   console.log("we are on the fourth node");
