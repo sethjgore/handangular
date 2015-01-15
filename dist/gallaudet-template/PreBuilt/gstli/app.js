@@ -27639,7 +27639,7 @@ module.run(['$templateCache', function($templateCache) {
           if (node.nodeType == 1) {
 
               //check node , nodeType, childElementCount
-              console.log(["checking node...", node, node.nodeType, node.childElementCount]);
+              console.log(["checking node with index of...", index, node, node.nodeType, node.childElementCount]);
 
               // if we are on second childNode --> + name of the project creator
               if (index == 0) {
