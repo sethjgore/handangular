@@ -208,7 +208,6 @@
       if ($scope.section) {
 
           if ($scope.section["video"] == "") {
-              $stateParams.type = "text";
           }
           console.log($scope.section["video"]);
           console.log("the section doesn't have any video link");
