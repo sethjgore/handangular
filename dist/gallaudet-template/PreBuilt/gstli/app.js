@@ -27387,8 +27387,7 @@ projectpage.controller('ProjectsCtrl', ['$scope', function($scope) {
     if(document.getElementById('custom_clientcontent img')){
         var groupImage = document.getElementById('custom_clientcontent img');
 
-       // $scope.groupImage = groupImage.attributes["src"];
-       //
+       $scope.groupImage = groupImage.attributes["src"];
     }
 
     //retrieve #custom_treelist (staff names)
