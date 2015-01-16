@@ -27384,6 +27384,13 @@ projectpage.controller('ProjectsCtrl', ['$scope', function($scope) {
     //retrieve #custom_template...
     var prerenderedText = document.getElementById('custom_content');
 
+    if(document.getElementById('custom_clientcontent img')){
+        var groupImage = document.getElementById('custom_clientcontent img');
+
+       // $scope.groupImage = groupImage.attributes["src"];
+       //
+    }
+
     //retrieve #custom_treelist (staff names)
     var staffList = document.querySelector('#custom_treelist ul').childNodes;
 
