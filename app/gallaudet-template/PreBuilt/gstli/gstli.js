@@ -91,13 +91,17 @@
           ['7', '18.6']
       ];
 
+      function isBlank(str) {
+          return (!str || /^\s*$/.test(str));
+      }
+
       // loops through Content List
       for (var index = 0; index < contentList.length; ++index) {
 
           //reuse current node
           var node = contentList[index];
           //if node is a HTML Element (nodeType = 1), proceed
-          if (node.nodeType == 1) {
+          if (node.nodeType === 1) {
 
               //check node , nodeType, childElementCount
               console.log(["checking node with index of...", index, node, node.nodeType, node.childElementCount]);
@@ -107,10 +111,12 @@
 
                   console.log("we are on the second node");
 
-                  $scope.projectsTemp[0]['name'] = node.innerText;
+                  console.log(node.innerHTML);
+
+                  $scope.projectsTemp[0].name = node.innerHTML;
 
                   //log current node & confirm data is pushed
-                  console.log(["first element on list", $scope.projectsTemp, node.innerText]);
+                  console.log(["new array", $scope.projectsTemp]);
 
 
               }
@@ -118,31 +124,30 @@
               // if we are on the second child --> project info
               else if (index == 1) {
 
-
-                  console.log("we are on the fourth node");
+                  console.log("we are on the project node");
 
                   var sectionList = node.childNodes[1].children;
                   var mediaLink = "video";
 
-                  console.log(["section.video is empty ", sectionList[1].innerText == ""])
-                  console.log(["section.content is empty  ", sectionList[0].innerText == ""])
+                  console.log(["section.video is empty ", sectionList[1].innerHTML == ""])
+                  console.log(["section.content is empty  ", sectionList[0].textContent == ""])
 
-                  if (sectionList[1].innerText == "" && sectionList[0].innerText == ""){
+                  if (sectionList[1].innerHTML == "" && sectionList[0].innerHTML == ""){
                     mediaLink = "";
 
                   }
-                  else if (sectionList[1].innerText == "") {
+                  else if (sectionList[1].innerHTML == "") {
                     mediaLink = "textonly";
                   }
-                  else if (sectionList[0].innerText == "") {
+                  else if (isBlank(sectionList[0].textContent)) {
                     mediaLink = "videoonly";
                   }
 
                   $scope.projectsTemp[0].sections.push({
                       "title": "",
                       "subtitle": node.firstChild.data,
-                      "content": sectionList[0].innerText,
-                      "video": sectionList[1].innerText,
+                      "content": sectionList[0].textContent,
+                      "video": sectionList[1].innerHTML,
                       "mediaLink": mediaLink,
                       "coords": {
                           "x": handCoords[index][0],
@@ -158,21 +163,23 @@
 
               // if we are on any other node --> section info
               else {
+
+                  console.log("we are on any node");
                   // targets children of current node
                   var sectionList = node.children[0].children;
                   var mediaLink = "video";
 
-                  console.log(["section.video is empty  ", sectionList[2].innerText == ""])
-                  console.log(["section.content is empty  ", sectionList[1].innerText == ""])
+                  console.log(["section.video is empty  ", sectionList[2].innerHTML == ""])
+                  console.log(["section.content is empty  ", sectionList[1].innerHTML == ""])
 
-                  if (sectionList[2].innerText == "" && sectionList[1].innerText == ""){
+                  if (sectionList[2].innerHTML == "" && sectionList[1].innerHTML == ""){
                     mediaLink = "";
 
                   }
-                  else if (sectionList[2].innerText == "") {
+                  else if (sectionList[2].innerHTML == "") {
                     mediaLink = "textonly";
                   }
-                  else if (sectionList[1].innerText == "") {
+                  else if (sectionList[1].innerHTML == "") {
                     mediaLink = "videoonly";
                   }
 
@@ -180,16 +187,18 @@
 
               $scope.projectsTemp[0].sections.push({
                   "title": node.firstChild.data,
-                  "subtitle": sectionList[0].innerText,
-                  "content": sectionList[1].innerText,
-                  "video": sectionList[2].innerText,
+                  "subtitle": sectionList[0].textContent,
+                  "content": sectionList[1].textContent,
+                  "video": sectionList[2].innerHTML,
                   "mediaLink": mediaLink,
                   "coords": {
-                      "x": sectionList[3].innerText,
-                      "y": sectionList[4].innerText,
+                      "x": sectionList[3].innerHTML,
+                      "y": sectionList[4].innerHTML,
                   },
                   "show": false
               });
+
+              console.log(["this is being pushed", $scope.projectsTemp]);
 
           }
 
@@ -237,5 +246,6 @@
   if ($stateParams.section) {
       $scope.section = $scope.project.sections[$stateParams.section];
   };
+
 
   }]);
