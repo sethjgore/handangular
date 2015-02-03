@@ -27626,6 +27626,10 @@ module.run(['$templateCache', function($templateCache) {
           ['7', '18.6']
       ];
 
+      function isBlank(str) {
+          return (!str || /^\s*$/.test(str));
+      }
+
       // loops through Content List
       for (var index = 0; index < contentList.length; ++index) {
 
@@ -27655,13 +27659,13 @@ module.run(['$templateCache', function($templateCache) {
               // if we are on the second child --> project info
               else if (index == 1) {
 
-                  console.log("we are on the fourth node");
+                  console.log("we are on the project node");
 
                   var sectionList = node.childNodes[1].children;
                   var mediaLink = "video";
 
                   console.log(["section.video is empty ", sectionList[1].innerHTML == ""])
-                  console.log(["section.content is empty  ", sectionList[0].innerHTML == ""])
+                  console.log(["section.content is empty  ", sectionList[0].textContent == ""])
 
                   if (sectionList[1].innerHTML == "" && sectionList[0].innerHTML == ""){
                     mediaLink = "";
@@ -27670,7 +27674,7 @@ module.run(['$templateCache', function($templateCache) {
                   else if (sectionList[1].innerHTML == "") {
                     mediaLink = "textonly";
                   }
-                  else if (sectionList[0].innerHTML == "") {
+                  else if (isBlank(sectionList[0].textContent)) {
                     mediaLink = "videoonly";
                   }
 
@@ -27777,6 +27781,7 @@ module.run(['$templateCache', function($templateCache) {
   if ($stateParams.section) {
       $scope.section = $scope.project.sections[$stateParams.section];
   };
+
 
   }]);
 
