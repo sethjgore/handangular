@@ -171,18 +171,16 @@
                 <div class="project--box--gradient handangular--container container">
                     <!-- Start GSTLI GALLERY overview -->
                     <div class="ax">
-                        <dl class="flex isw100 m0 project-group" style="background-image: {{groupImage}});">
+                        <div class="flex isw100 m0 project-group">
 
 
-                            <a ng-repeat="p in projects" ng-href="{{p.link}}" class="projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
-                                <!--<div class="projects--info"><h1>Go to Project {{p.title}}</h1></div>-->
-                                <dd>
-                                    <h3 class="flex__item projects--button">
+                            <a ng-repeat="p in projects" ng-href="{{p.link}}" class="project-template projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
+
+                                <h3 class="flex__item projects--button">
                                         {{p.name}}
                                     </h3>
-                                </dd>
                             </a>
-                        </dl>
+                        </div>
                     </div>
                     <!--End GSTLI GALLERY overview-->
                 </div>
@@ -191,6 +189,10 @@
 
             </div>
             <!-- /ng-app -->
+        </div>
+
+        <div id="custom_clientcontent">
+            <img src="/gallaudet-template/Images/GSTLIGallery/project-group.jpg">
         </div>
         <!-- /content -->
         <div id="custom_treelistindex">
