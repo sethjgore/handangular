@@ -1,0 +1,71 @@
+#gstligallerymenu {
+    background: hsla(0, 0%, 55%, 0.15);
+}
+#gstligallerymenu ul {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 15px 4px 17px 0;
+    list-style: none;
+}
+#gstligallerymenu ul li {
+    font: 300 16px/18px sans-serif;
+    display: inline-block;
+    margin-right: -4px;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+    color: hsl(0, 0%, 29%);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#gstligallerymenu ul li:hover {
+    background: hsla(0, 100%, 100%, 0.49);
+}
+#gstligallerymenu ul li ul {
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 150px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transiton: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    -ms-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    -transition: opacity 0.4s;
+}
+#gstligallerymenu ul li ul li {
+    background: hsla(0, 0%, 55%, 0.15);
+    display: block;
+    color: hsl(0, 0%, 29%);
+}
+#gstligallerymenu ul li ul li:hover {
+    background: hsla(0, 100%, 100%, 0.30);
+}
+#gstligallerymenu ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+#gstligallerymenu ul li:hover ul li:last-child {
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+#gstligallerymenu a {
+    color: hsl(0, 0%, 52%);
+    text-decoration: none;
+}
+
+#gstligallerymenu ul li:hover > a{
+  text-decoration: underline;
+}

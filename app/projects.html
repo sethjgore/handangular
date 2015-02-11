@@ -163,9 +163,21 @@
             </div>
         </div>
         <!-- /subheader -->
-        <div id="custom_content" class=" span-24 curved_bottom dropshadow">
+        <div id="custom_content" class=" span-24 curved_bottom dropshadow project-group">
             <!-- Start GSTLI GALLERY overview -->
-            <div class="flex isw100 m0 project-group">
+
+            <form class="search" id="gstli-search" name="form" method="get" action="http://www.google.com/cse">
+                            <input name="q" id="q" value="Search GSTLI Gallery" onclick="this.value = '';" maxlength="255" type="text" />
+                            <input type="hidden" name="hl" value="en" />
+                            <input type="hidden" name="sa" value="Search" />
+                            <input type="hidden" name="cx" value="009628008525241448883:iuid6in4wwk" />
+                            <input type="hidden" name="ie" value="UTF-8" />
+                        <div class="gstli-search-submit">
+                            <input type="submit" name="" value="Search" />
+                        </div>
+                    </form>
+
+            <div class="flex isw100 m0 ">
 
 
                 <a href="#" class="project-template projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
@@ -198,6 +210,20 @@
             </div>
         </div>
 
+        <div id="gstligallerymenu">
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="">Lorem
+                    </a>
+                    <ul>
+                        <li><a href="">child</a></li>
+                        <li><a href="">child</a></li>
+                        <li><a href="">child</a></li>
+                    </ul></li>
+                <li><a href="">Testing</a></li>
+                <li><a href="">Reference</a></li>
+            </ul>
+        </div>
         <span id="footer" class="span-24 prepend-top">
             <span class="span-5">
                 <span class="head">

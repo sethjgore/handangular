@@ -67,4 +67,18 @@
 
     }
 
+    //sets galleryMenuTree <--- #gstligallerymenu
+    if(document.querySelector('#gstligallerymenu')){
+        var menuTree = document.querySelector('#gstligallerymenu');
+
+        var searchForm = document.querySelector('#gstli-search');
+
+        menuTree.appendChild(searchForm);
+
+        var projectContainer = document.querySelector('#custom_content ');
+
+        projectContainer.insertBefore(menuTree, projectContainer.firstChild);
+
+    }
+
 })(this, document);

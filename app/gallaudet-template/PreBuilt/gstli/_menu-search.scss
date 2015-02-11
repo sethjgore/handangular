@@ -1,0 +1,25 @@
+#gstli-search {
+    display: inline-block;
+    float: right;
+}
+#gstli-search #q {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border: none;
+    padding: 0.4rem;
+    padding-right: 0rem;
+}
+#gstli-search .gstli-search-submit {
+    margin-left: -.3rem;
+    margin-right: 0.9rem;
+    display: inline-block;
+}
+#gstli-search .gstli-search-submit input {
+    border: none;
+    background: hsl(43, 100%, 65%);
+    padding: 0.4rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: .5rem;
+}
