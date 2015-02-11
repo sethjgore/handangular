@@ -1,6 +1,13 @@
 "use strict";
 
-(function(window, document, undefined){
+//todo put this script inline
+(function(window, document, undefined) {
+
+    var forEach = function(array, callback, scope) {
+        for (var i = 0; i < array.length; i++) {
+            callback.call(scope, array[i], i); // passes back stuff we need
+        }
+    };
 
     if (document.querySelector('#custom_clientcontent img')) {
 
@@ -10,7 +17,7 @@
         var groupImageClientSrc = groupImageClient.attributes["src"].value;
 
         //builds URL <--- groupImageClientSrc
-        var groupImageDocUrl = "url("+groupImageClientSrc+")";
+        var groupImageDocUrl = "url(" + groupImageClientSrc + ")";
 
         //gets NODE <----> .project-group
         var groupImageDoc = document.querySelector('.project-group');
@@ -18,53 +25,46 @@
         //applies BACKGROUNDIMAGE ---> groupImageDoc NODE
         groupImageDoc.style.backgroundImage = groupImageDocUrl;
 
+        console.log("client's image is applied to the project-group node");
     }
 
-    if(document.querySelector('#custom_treelist ul').childNodes){
+    if (document.querySelector('#custom_treelist li').childNodes) {
         var linkTemplate = document.querySelector('.project-template');
 
         var parentTemplate = linkTemplate.parentNode;
 
-        var clone = linkTemplate.cloneNode();
+        var linkClientData = document.querySelectorAll('#custom_treelist li');
 
-        console.log(parentTemplate.insertAdjacentHTML('beforeend', clone));
+        var appendData = function(el, i) {
 
-        console.log(clone);
+            //sets <a> <--- <li>
+            var el = el.children[0];
+
+            //builds link object
+            var link = {};
+            var clone = {};
+
+            link.text = el.textContent;
+            link.href = el.attributes["href"].value;
+
+            clone.template = linkTemplate.cloneNode(true);
+            clone.text = clone.template.children[0].textContent;
+            clone.href = clone.template.attributes["href"];
+
+            clone.href = link.href;
+            clone.text = link.text;
+
+            clone.template.children[0].textContent = link.text;
+            clone.template.attributes["href"].value = link.href;
+
+            parentTemplate.appendChild(clone.template);
+
+        }
+
+        forEach(linkClientData, appendData);
+
+        parentTemplate.removeChild(linkTemplate);
+
     }
 
 })(this, document);
-
-
-console.log(angular);
-
-var projectpage = angular.module('projectpage', []);
-
-projectpage.controller('ProjectsCtrl', ['$scope', function($scope) {
-
-    console.log("This is the project controller js");
-
-    //retrieve #custom_template...
-    var prerenderedText = document.getElementById('custom_content');
-
-    //retrieve #custom_treelist (staff names)
-    var staffList = document.querySelector('#custom_treelist ul').childNodes;
-
-    console.log(staffList);
-
-    $scope.projects = [];
-
-    for (var index = 0; index < staffList.length; ++index) {
-
-        var node = staffList[index];
-
-        console.log(node.nodeType);
-
-        if (node.nodeType == 1) {
-            $scope.projects.push({
-                'link': node.firstChild.attributes["href"].value,
-                'name': node.innerText
-            });
-
-        }
-    }
-}]);
