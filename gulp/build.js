@@ -15,7 +15,7 @@ function handleError(err) {
 }
 
 gulp.task('styles', function () {
-  return gulp.src('app/gallaudet-template/PreBuilt/gstli/main.scss')
+  return gulp.src('app/gallaudet-template/PreBuilt/gstli/{main, front}.scss')
     .pipe($.sass({style: 'expanded'}))
     .on('error', handleError)
     .pipe($.autoprefixer('last 1 version'))

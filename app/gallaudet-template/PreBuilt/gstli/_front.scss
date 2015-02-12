@@ -1,3 +1,23 @@
 #gstligalleryfront{
   background-size: cover
 }
+
+//hides CMS generated tags
+#gstligalleryfront_breadcrumb
+  display: none
+
+
+#gstligalleryfront_breadcrumb a
+  color: #989898
+
+#gstligalleryfront_breadcrumb a:hover
+  color: #688fbb
+
+#gstligalleryfront_mainmenu
+  display: none
+
+#gstligalleryfront_treelistindex
+  display: none
+
+#gstligalleryfront_splash
+  display: none
