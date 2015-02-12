@@ -9,10 +9,10 @@
         }
     };
 
-    if (document.querySelector('#custom_clientcontent img')) {
+    if (document.querySelector('#gstligalleryfront_splash img')) {
 
-        //gets IMG NODE <--- #clientcontent
-        var groupImageClient = document.querySelector('#custom_clientcontent img');
+        //gets IMG NODE <--- #gstligalleryfrontfront_splash
+        var groupImageClient = document.querySelector('#gstligalleryfront_splash img');
         //gets TEXTCONTENT <--- IMG NODE
         var groupImageClientSrc = groupImageClient.attributes["src"].value;
 
@@ -20,7 +20,7 @@
         var groupImageDocUrl = "url(" + groupImageClientSrc + ")";
 
         //gets NODE <----> .project-group
-        var groupImageDoc = document.querySelector('.project-group');
+        var groupImageDoc = document.querySelector('#gstligalleryfront');
 
         //applies BACKGROUNDIMAGE ---> groupImageDoc NODE
         groupImageDoc.style.backgroundImage = groupImageDocUrl;
@@ -28,12 +28,12 @@
         console.log("client's image is applied to the project-group node");
     }
 
-    if (document.querySelector('#custom_treelist li').childNodes) {
+    if (document.querySelector('#gstligalleryfront_treelist li').childNodes) {
         var linkTemplate = document.querySelector('.project-template');
 
         var parentTemplate = linkTemplate.parentNode;
 
-        var linkClientData = document.querySelectorAll('#custom_treelist li');
+        var linkClientData = document.querySelectorAll('#gstligalleryfront_treelist li');
 
         var appendData = function(el, i) {
 
@@ -68,14 +68,14 @@
     }
 
     //sets galleryMenuTree <--- #gstligallerymenu
-    if(document.querySelector('#gstligallerymenu')){
-        var menuTree = document.querySelector('#gstligallerymenu');
+    if(document.querySelector('#gstligalleryfront_menu')){
+        var menuTree = document.querySelector('#gstligalleryfront_menu');
 
-        var searchForm = document.querySelector('#gstli-search');
+        var searchForm = document.querySelector('#gstligalleryfront_search');
 
         menuTree.appendChild(searchForm);
 
-        var projectContainer = document.querySelector('#custom_content ');
+        var projectContainer = document.querySelector('#gstligalleryfront');
 
         projectContainer.insertBefore(menuTree, projectContainer.firstChild);
 

@@ -1,8 +1,8 @@
-#gstli-search {
+#gstligalleryfront_search {
     display: inline-block;
     float: right;
 }
-#gstli-search #q {
+#gstligalleryfront_search #q {
     margin-top: 0.6rem;
     font-size: 0.8rem;
     border-top-left-radius: .5rem;
@@ -11,15 +11,18 @@
     padding: 0.4rem;
     padding-right: 0rem;
 }
-#gstli-search .gstli-search-submit {
+#gstligalleryfront_search .gstli-search-submit {
     margin-left: -.3rem;
     margin-right: 0.9rem;
     display: inline-block;
 }
-#gstli-search .gstli-search-submit input {
+#gstligalleryfront_search .gstli-search-submit input {
     border: none;
-    background: hsl(43, 100%, 65%);
+    background: url('../../Images/GSTLIGallery/search-icon.svg') no-repeat center center, hsla(202, 100%, 65%, 0.47);
+    background-size: 75%;
     padding: 0.4rem;
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: .5rem;
+    width: 2rem;
+    color: hsla(0, 0%, 0%, 0);
 }

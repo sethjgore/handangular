@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="robots" content="all" />
+    <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae consequat neque, sed dapibus dolor." />
+    <meta name="keywords" content="lorem, amet, consectetur, aliquam, consequat, sed" />
+    <meta name="author" content="Gallaudet University" />
+    <title>Thomas Horejes - Gallaudet University</title>
+    <link rel="shortcut icon" href="http://www.gallaudet.edu/images/favicon.png" />
+    <link rel="icon" href="http://www.gallaudet.edu/images/favicon.png" />
+    <link rel="stylesheet" href="http://www.gallaudet.edu/prebuilt/blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="http://www.gallaudet.edu/prebuilt/blueprint/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://www.gallaudet.edu/prebuilt/gallaudet.css" type="text/css" media="screen, projection" />
+    <script type="text/javascript" src="http://www.gallaudet.edu/prebuilt/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="http://www.gallaudet.edu/prebuilt/swfobject.js"></script>
+    <script type="text/javascript" src="http://www.gallaudet.edu/prebuilt/jquery/mbScrollable.js" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:gallaudet="urn:gallaudet" xmlns:prefix="urn:gallaudet"></script>
+    <script type="text/javascript" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:gallaudet="urn:gallaudet" xmlns:prefix="urn:gallaudet">
+    $(function() {
+
+        $("#myScroll_ads").mbScrollable({
+            width: 390,
+            height: 98,
+            elementsInPage: 2,
+            elementMargin: 0,
+            /*shadow:"#999 2px 2px 2px",*/
+            controls: "#controls_ads",
+            slideTimer: 800,
+            autoscroll: true,
+            scrollTimer: 5000
+        });
+
+        $("#myScroll_events").mbScrollable({
+            dir: "vertical",
+            width: 390,
+            height: 210,
+            /*250*/
+            elementsInPage: 2,
+            elementMargin: 10,
+            /*shadow:"#999 2px 2px 2px",*/
+            controls: "#controls_events",
+            slideTimer: 400,
+            autoscroll: false,
+            scrollTimer: 4000
+        });
+    });
+    </script>
+    <script type="text/javascript" src="http://www.gallaudet.edu/prebuilt/jquery/menu/menu.js" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:gallaudet="urn:gallaudet" xmlns:prefix="urn:gallaudet"></script>
+    <script type="text/javascript" src="http://www.gallaudet.edu/prebuilt/jquery/menu/hoverIntent.js" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:gallaudet="urn:gallaudet" xmlns:prefix="urn:gallaudet"></script>
+    <script type="text/javascript" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:gallaudet="urn:gallaudet" xmlns:prefix="urn:gallaudet">
+    $(document).ready(function() {
+        //Code goes here
+
+        //On Hover Over
+        function megaHoverOver() {
+                $(this).find(".sub").stop().fadeTo('fast', 1).show(); //Find sub and fade it in
+                (function($) {
+                    //Function to calculate total width of all ul's
+                    jQuery.fn.calcSubWidth = function() {
+                        rowWidth = 0;
+                        //Calculate row
+                        $(this).find("ul").each(function() { //for each ul...
+                            rowWidth += $(this).width(); //Add each ul's width together
+                        });
+                    };
+                })(jQuery);
+                if ($(this).find(".row").length > 0) { //If row exists...
+                    var biggestRow = 0;
+                    $(this).find(".row").each(function() { //for each row...
+                        $(this).calcSubWidth(); //Call function to calculate width of all ul's
+                        //Find biggest row
+                        if (rowWidth > biggestRow) {
+                            biggestRow = rowWidth;
+                        }
+                    });
+                    $(this).find(".sub").css({
+                        'width': biggestRow
+                    }); //Set width
+                    $(this).find(".sub").css({
+                        'z-index': '500'
+                    }); //Set z-index (related to Case # 00021279 20130211 IGX Sean C.)
+                    $(this).find(".row:last").css({
+                        'margin': '0'
+                    }); //Kill last row's margin
+                } else { //If row does not exist...
+                    $(this).calcSubWidth(); //Call function to calculate width of all ul's
+                    $(this).find(".sub").css({
+                        'width': rowWidth
+                    }); //Set Width
+                    $(this).find(".sub").css({
+                        'z-index': '500'
+                    }); //Set z-index (related to Case # 00021279 20130211 IGX Sean C.)
+                }
+            }
+            //On Hover Out
+        function megaHoverOut() {
+                $(this).find(".sub").stop().fadeTo('fast', 0, function() { //Fade to 0 opactiy
+                    $(this).hide(); //after fading, hide it
+                });
+            }
+            //Set custom configurations
+        var config = {
+            sensitivity: 1, // number = sensitivity threshold (must be 1 or higher)
+            interval: 00, // number = milliseconds for onMouseOver polling interval
+            over: megaHoverOver, // function = onMouseOver callback (REQUIRED)
+            timeout: 30, // number = milliseconds delay before onMouseOut
+            out: megaHoverOut // function = onMouseOut callback (REQUIRED)
+        };
+        $("ul#topnav li .sub").css({
+            'opacity': '1'
+        }); //Fade sub nav to 0 opacity on default
+        $("ul#topnav li").hoverIntent(config); //Trigger Hover intent with custom configurations
+    });
+    </script>
+    <base href="http://www.gallaudet.edu/" />
+    <style>
+    /* test */
+
+    @media print {
+        .noPrint {
+            display: none;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="http://www.gallaudet.edu/prebuilt/gstligalleryproject.css" type="text/css" media="screen, projection" />
+
+    <link rel="stylesheet" href="https://rawgit.com/sethjgore/handangular/master/dist/gallaudet-template/PreBuilt/gstli/main.css"></link>
+    <script src="https://rawgit.com/sethjgore/handangular/master/dist/gallaudet-template/PreBuilt/gstli/app.js"></script>
+</head>
+
+<body id="standard">
+    <div class="container">
+        <div class="noPrint">
+            <div id="header" class="home span-24">
+                <div id="logo" class="span-6"><a href="http://www.gallaudet.edu/"><span id="logo_button"></span></a>
+                </div>
+                <div id="quickaccess" class="span-14"><span class="right"><a href="http://mail.gallaudet.edu/">Webmail</a>&nbsp;|&nbsp;<a href="http://my.gallaudet.edu/">my.Gallaudet</a></span>
+                </div>
+                <div id="search" class="span-4 last right">
+                    <div class="right">
+                        <form class="search" id="form" name="form" method="get" action="http://www.google.com/cse">
+                            <div class="search_left"></div>
+                            <div class="search_box">
+                                <input name="q" id="q" value="Search Gallaudet" onclick="this.value = '';" maxlength="255" type="text" />
+                                <input type="hidden" name="hl" value="en" />
+                                <input type="hidden" name="sa" value="Search" />
+                                <input type="hidden" name="cx" value="012947434843868975133:8xrmsvqohe8" />
+                                <input type="hidden" name="ie" value="UTF-8" />
+                            </div>
+                            <div class="search_right">
+                                <input type="submit" name="" value="" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="topnavbar" class="span-18 last right">
+                    <div class="right">
+                        <ul id="topnav">
+                            <li><a href="x47919.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="About Gallaudet">About Gallaudet</a>
+                                <ul class="sub">
+                                    <li><a href="x83623.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="2014 Presidential Search">2014 Presidential Search</a>
+                                    </li>
+                                    <li><a href="x48004.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Administration">Administration</a>
+                                    </li>
+                                    <li><a href="x82732.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Campus Photos">Campus Photos</a>
+                                    </li>
+                                    <li><a href="x49058.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Contact Us">Contact Us</a>
+                                    </li>
+                                    <li><a href="x44085.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Employment Opportunities">Employment Opportunities</a>
+                                    </li>
+                                    <li><a href="x20520.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Fast Facts">Fast Facts</a>
+                                    </li>
+                                    <li><a href="http://giving.gallaudet.edu" title="Giving to Gallaudet">Giving to Gallaudet</a>
+                                    </li>
+                                    <li><a href="x26849.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Maps &amp; Directions">Maps &amp; Directions</a>
+                                    </li>
+                                    <li><a href="x20518.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Mission &amp; Goals">Mission &amp; Goals</a>
+                                    </li>
+                                    <li><a href="x40820.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Museum">Museum</a>
+                                    </li>
+                                    <li><a href="x60747.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Sustainability">Sustainability</a>
+                                    </li>
+                                    <li><a href="x20770.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="University Communications">University Communications</a>
+                                    </li>
+                                    <li><a href="x26848.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Visitors Center">Visitors Center</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="x47920.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Admissions">Admissions</a>
+                                <ul class="sub">
+                                    <li><a href="x66080.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="English Language Institute">English Language Institute</a>
+                                    </li>
+                                    <li><a href="x19004.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Financial Aid">Financial Aid</a>
+                                    </li>
+                                    <li><a href="x12122.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Graduate Admissions">Graduate Admissions</a>
+                                    </li>
+                                    <li><a href="x73719.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="International Admissions">International Admissions</a>
+                                    </li>
+                                    <li><a href="x15418.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Professional Studies">Professional Studies</a>
+                                    </li>
+                                    <li><a href="x71874.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Undergraduate Admissions">Undergraduate Admissions</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="x47921.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Academics &amp; Research">Academics &amp; Research</a>
+                                <ul class="sub">
+                                    <li><a href="x23527.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Archives/Deaf Collections">Archives/Deaf Collections</a>
+                                    </li>
+                                    <li><a href="x17325.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Career Center">Career Center</a>
+                                    </li>
+                                    <li><a href="x73870.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Catalog &amp; Course Info">Catalog &amp; Course Info</a>
+                                    </li>
+                                    <li><a href="x68945.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Office of Distance Education">Office of Distance Education</a>
+                                    </li>
+                                    <li><a href="x55896.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="General Studies">General Studies</a>
+                                    </li>
+                                    <li><a href="x26696.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Graduate Programs">Graduate Programs</a>
+                                    </li>
+                                    <li><a href="x56342.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Honors Program">Honors Program</a>
+                                    </li>
+                                    <li><a href="x16102.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Library">Library</a>
+                                    </li>
+                                    <li><a href="x15418.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Professional Studies">Professional Studies</a>
+                                    </li>
+                                    <li><a href="x19005.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Registrar's Office">Registrar's Office</a>
+                                    </li>
+                                    <li><a href="x78527.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Research Support and International Affairs">Research Support and International Affairs</a>
+                                    </li>
+                                    <li><a href="x72048.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Undergraduate Majors">Undergraduate Majors</a>
+                                    </li>
+                                    <li><a href="http://vl2.gallaudet.edu/" title="VL2">VL2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="x47922.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Campus Life">Campus Life</a>
+                                <ul class="sub">
+                                    <li><a href="x16974.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Campus Activities">Campus Activities</a>
+                                    </li>
+                                    <li><a href="x16975.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Office of Campus Ministries">Office of Campus Ministries</a>
+                                    </li>
+                                    <li><a href="http://www.cafebonappetit.com/gallaudet/" title="Food Services">Food Services</a>
+                                    </li>
+                                    <li><a href="x65166.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Residence Life and Housing">Residence Life and Housing</a>
+                                    </li>
+                                    <li><a href="x73626.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Washington, D.C.">Washington, D.C.</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="http://www.gallaudetathletics.com/" title="Athletics">Athletics</a>
+                                <ul class="sub">
+                                    <li><a href="http://www.gallaudetathletics.com/information/seasonpass" title="BISONPass">BISONPass</a>
+                                    </li>
+                                    <li><a href="http://www.gallaudetathletics.com/intramurals/index" title="Intramurals">Intramurals</a>
+                                    </li>
+                                    <li><a href="http://www.gallaudetathletics.com/composite" title="Composite Schedule">Composite Schedule</a>
+                                    </li>
+                                    <li><a href="http://www.gallaudetathletics.com/camps/index" title="Summer Sports Camps">Summer Sports Camps</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="subheader" class="span-24 curved_top">
+            <div class="title"><a href="x87107.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">GSTLI Gallery</a>
+            </div>
+        </div>
+        <div id="gstligallery" class="span-24 curved_bottom dropshadow">
+            <div id="gstligallery_breadcrumb"><a href="x48240.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" class="">Home</a> &gt; GSTLI Gallery</div>
+            <div id="gstligallery_content" xmlns:igxlib="urn:igxlibns">
+                <div ng-app="handangular">
+                    <div class="project--box--gradient handangular--container container" ng-controller="ProjectsCtrl">
+                        <section ui-view=""></section>
+                    </div>
+                </div>
+                <div id="gstligallery_clientcontent">
+                    <ul>
+                        <li>Thomas Horejes</li>
+                        <li>Demystifying Linguistic Bottlenecks
+                            <ul>
+                                <li>
+                                    <p>My project focuses on intermediate processes that reveal students' knowledge. The intermediate processes include the connection between prior knowledge (what they bring to the classroom) to "new" knowledge (how they develop academic knowledge in the classroom). Students' interpretation comes from them utilizing their various knowledge(s) to arrive at calculated conclusions about academic information being conveyed. It is the goal of the proposal to reveal cultural displays of knowledge constructed within diverse ideologies of deaf educational practice and the larger understanding of deafness. Once I capture the intermediate processes of student learning and interaction through their mediated knowledge(s), this gives me the opportunity to identify, document, and classify the different types of knowledge being processed.</p>
+                                </li>
+                                <li>U0sGbAHe4EY</li>
+                                <li>-3000</li>
+                                <li>0</li>
+                            </ul>
+                        </li>
+                        <li>Introduction
+                            <ul>
+                                <li>Question that we wanted to ask</li>
+                                <li>
+                                    <p>In any Sociology course, students' critical thinking is foundational and essential to their learning process. Critical thinking is required in students, as a disciplinary skill, to examine sociological concepts/theories and to capture what Sociologists call the 'sociological imagination.' The sociological imagination comes from C. Wright Mills (1959) where he urged that for teachers to teach sociology and its concepts to our diverse students, we must address: 1) What is the structure of the particular society? 2) Where does that society stand in human history?, and 3) What varieties of humans prevail in that society? Understanding these central questions require critical thinking. As a teacher, I am always curious as the semester progresses to uncover the ways students develop critical thinking skills. Equally as important, I am curious to identify key moments where students make a breakthrough to think critically about sociological concepts and their application to society.</p>
+                                </li>
+                                <li>14SygX3V1gc</li>
+                                <li>3</li>
+                                <li>1</li>
+                            </ul>
+                        </li>
+                        <li>Methodology
+                            <ul>
+                                <li>What we did &amp; How</li>
+                                <li>
+                                    <p>To help frame my research question to identify some bottlenecks that students encounter as they build on their critical thinking skills, I introduce four different sociological concepts throughout the semester: 1) Ideology, 2) Privilege, 3) Race/Class/Gender, 4) Racial Disparity. These four concepts were designed to elicit different knowledge bases (both consciously and unconsciously), to reveal the various intermediate processes from students and to identify critical thinking "in progress." In order to understand these concepts toward the discipline of sociology, it takes a sociological imagination to capture them (Snowden 2006). To this end, I gave students academic materials (both in ASL/English) about the given concept, and they had the opportunity to both self-reflect about each concept as well as engage in group-discussions. These discussions and self-reflections were documented in both English and in ASL via video. Student discussions were videotaped to capture student learning as evidence of the various discourses occurring as they discussed a sociological concept.</p>
+                                </li>
+                                <li>1YiQixF8so4</li>
+                                <li>12</li>
+                                <li>9</li>
+                            </ul>
+                        </li>
+                        <li>Literature Review
+                            <ul>
+                                <li>Establishing our studies</li>
+                                <li>
+                                    <p>On a macro-level, sociology is the study of the development, management, and taxonomy of human societies, communities, cultures, and academic institutions. On a micro-level, university classrooms serve as rich sites in the development, management, and taxonomy of students' and teachers' knowledge. It is the study of our classrooms that provide the opportunity to (re)design courses with the aim of strengthening our teaching and learning (Ambrose et al. 2010). Other than the discipline of education, sociology is seen as one of the earliest influences outside of discipline to incorporate SoTL and Sociology as an interdisciplinary focus (Mauksch and Howery 1986) to teaching and learning.</p>
+                                </li>
+                                <li></li>
+                                <li>12.5</li>
+                                <li>12.9</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li>11</li>
+                                <li>16.7</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li>10</li>
+                                <li>20</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="noPrint"><span id="footer" class="span-24 prepend-top"><span class="span-5"><span class="head"><a href="x47919.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="About Gallaudet">About Gallaudet</a></span>
+            <br /><a href="x83623.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">2014 Presidential Search</a>
+            <br /><a href="x48004.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Administration</a>
+            <br /><a href="x82732.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Campus Photos</a>
+            <br /><a href="x12330.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Clerc Center</a>
+            <br /><a href="x49058.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Contact Us</a>
+            <br /><a href="x44085.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Employment Opportunities</a>
+            <br /><a href="x20520.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Fast Facts</a>
+            <br /><a href="http://giving.gallaudet.edu/page.aspx?pid=290">Make an Online Gift</a>
+            <br /><a href="x26849.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Maps &amp; Directions</a>
+            <br /><a href="x40820.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Museum</a>
+            <br /><a href="x20770.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">University Communications</a>
+            <br /><a href="x26848.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Visitors Center</a>
+            <br />
+            </span><span class="span-5"><span class="head"><a href="x47920.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Admissions">Admissions</a></span>
+            <br /><a href="x66080.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">English Language Institute</a>
+            <br /><a href="x19004.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Financial Aid</a>
+            <br /><a href="x12122.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Graduate Admissions</a>
+            <br /><a href="http://www.gallaudet.edu/x39841.xml">Graduate Orientation</a>
+            <br /><a href="x73719.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">International Admissions</a>
+            <br /><a href="x15418.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Professional Studies</a>
+            <br /><a href="x27988.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Test Center</a>
+            <br /><a href="x71874.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Undergraduate Admissions</a>
+            <br />
+            </span><span class="span-5"><span class="head"><a href="x47921.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Academics &amp; Research">Academics &amp; Research</a></span>
+            <br /><a href="x23527.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Archives/Deaf Collections</a>
+            <br /><a href="x17325.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Career Center</a>
+            <br /><a href="x73870.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Catalog &amp; Course Info</a>
+            <br /><a href="x55896.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">General Studies</a>
+            <br /><a href="x26696.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Graduate Programs</a>
+            <br /><a href="x56342.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Honors Program</a>
+            <br /><a href="x16102.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Library</a>
+            <br /><a href="x15418.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Professional Studies</a>
+            <br /><a href="x19005.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Registrar's Office</a>
+            <br /><a href="x78527.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Research Support and International Affairs</a>
+            <br /><a href="x72048.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Undergraduate Majors</a>
+            <br /><a href="http://vl2.gallaudet.edu/">VL2</a>
+            <br />
+            </span><span class="span-5"><span class="head"><a href="x47922.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=" title="Campus Life">Campus Life</a></span>
+            <br /><a href="http://www.gallaudetathletics.com/">Athletics</a>
+            <br /><a href="x43715.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Bison Shop (bookstore)</a>
+            <br /><a href="x16974.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Campus Activities</a>
+            <br /><a href="x20483.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Commencement</a>
+            <br /><a href="http://www.cafebonappetit.com/gallaudet/">Food Services</a>
+            <br /><a href="http://www.gallaudetathletics.com/intramurals/index">Intramurals</a>
+            <br /><a href="x44448.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Public Safety</a>
+            <br /><a href="x65166.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Residence Life and Housing</a>
+            <br /><a href="x73626.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Washington, D.C.</a>
+            <br />
+            </span><span class="span-4 last"><span class="head">Tools &amp; Resources</span>
+            <br /><a href="https://secure.gallaudet.edu/bison/">Bison</a>
+            <br /><a href="x28462.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Campus Directory</a>
+            <br /><a href="x77941.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Daily Digest</a>
+            <br /><a href="http://helpdesk.gallaudet.edu/">Help Desk</a>
+            <br /><a href="x44506.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Gallaudet Alert-subscribe</a>
+            <br /><a href="http://gupress.gallaudet.edu">GU Press</a>
+            <br /><a href="http://kelloggconferencehotel.com/index.php">Kellogg Conference Hotel</a>
+            <br /><a href="x26849.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Maps &amp; Directions</a>
+            <br /><a href="https://my.gallaudet.edu/webapps/portal/frameset.jsp">my.Gallaudet</a>
+            <br /><a href="http://people.gallaudet.edu/">People @ Gallaudet</a>
+            <br /><a href="x43779.xml?Preview=true&amp;Site=&amp;IncludeAllPages=false&amp;tfrm=1&amp;PubTgt=2&amp;Site=&amp;UserAgent=">Shuttle Bus</a>
+            <br />
+            </span>
+            </span><span id="subfooter" class="span-24 prepend-top append-bottom"><span class="logo span-2"><a href="http://www.gallaudet.edu/" title="Gallaudet University"><img src="http://www.gallaudet.edu/images/site/logo_footer.png" alt="Gallaudet University" /></a></span><span class="copyright_info span-10"><a href="http://www.gallaudet.edu/" title="Gallaudet University">Gallaudet University</a> | 800 Florida Avenue NE, Washington, DC 20002<br />
+            Copyright &copy; 2014 <a href="http://www.gallaudet.edu/" title="Gallaudet University">Gallaudet University</a></span><span class="quickaccess span-11 last right"><span class="right"><a href="http://www.facebook.com/pages/Gallaudet-University/62082505853"><img src="http://www.gallaudet.edu/images/site/icon-facebook.png" alt="Facebook" title="Facebook" width="25" height="25" style="padding-left: 6px;" /></a><a href="http://www.twitter.com/gallaudetu"><img src="http://www.gallaudet.edu/images/site/icon-twitter.png" alt="Twitter" title="Twitter" width="25" height="25" style="padding-left: 6px;" /></a><a href="http://www.youtube.com/gallaudetvideo"><img src="http://www.gallaudet.edu/images/site/icon-youtube.png" alt="YouTube" title="YouTube" width="25" height="25" style="padding-left: 6px;" /></a></span></span>
+            </span>
+        </div>
+    </div>
+    <div id="bar"></div>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript" />
+    <script type="text/javascript">
+    _uacct = "UA-2899247-50";
+    urchinTracker();
+    </script>
+    <script type="text/javascript" src="http://us1.siteimprove.com/js/siteanalyze_14049.js"></script>
+</body>
+
+</html>

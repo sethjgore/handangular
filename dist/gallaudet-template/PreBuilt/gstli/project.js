@@ -1,44 +1,87 @@
 "use strict";
 
-console.log(angular);
+//todo put this script inline
+(function(window, document, undefined) {
 
-var projectpage = angular.module('projectpage', []);
+    var forEach = function(array, callback, scope) {
+        for (var i = 0; i < array.length; i++) {
+            callback.call(scope, array[i], i); // passes back stuff we need
+        }
+    };
 
-projectpage.controller('ProjectsCtrl', ['$scope', function($scope) {
+    if (document.querySelector('#custom_clientcontent img')) {
 
-    console.log("This is the project controller js");
+        //gets IMG NODE <--- #clientcontent
+        var groupImageClient = document.querySelector('#custom_clientcontent img');
+        //gets TEXTCONTENT <--- IMG NODE
+        var groupImageClientSrc = groupImageClient.attributes["src"].value;
 
-    //retrieve #custom_template...
-    var prerenderedText = document.getElementById('custom_content');
+        //builds URL <--- groupImageClientSrc
+        var groupImageDocUrl = "url(" + groupImageClientSrc + ")";
 
-    if(document.getElementById('custom_clientcontent img')){
-        var groupImage = document.getElementById('custom_clientcontent img');
+        //gets NODE <----> .project-group
+        var groupImageDoc = document.querySelector('.project-group');
 
-       $scope.groupImage = groupImage.attributes["src"];
+        //applies BACKGROUNDIMAGE ---> groupImageDoc NODE
+        groupImageDoc.style.backgroundImage = groupImageDocUrl;
+
+        console.log("client's image is applied to the project-group node");
     }
 
-    //retrieve #custom_treelist (staff names)
-    var staffList = document.querySelector('#custom_treelist ul').childNodes;
+    if (document.querySelector('#custom_treelist li').childNodes) {
+        var linkTemplate = document.querySelector('.project-template');
 
-    console.log(staffList);
+        var parentTemplate = linkTemplate.parentNode;
 
-    $scope.projects = [];
+        var linkClientData = document.querySelectorAll('#custom_treelist li');
 
-    for (var index = 0; index < staffList.length; ++index) {
+        var appendData = function(el, i) {
 
-        var node = staffList[index];
+            //sets <a> <--- <li>
+            var el = el.children[0];
 
-        console.log(node.nodeType);
+            //builds link object
+            var link = {};
+            var clone = {};
 
-        if (node.nodeType == 1) {
-            $scope.projects.push({
-                'link': node.firstChild.attributes["href"].value,
-                'name': node.innerText
-            });
+            link.text = el.textContent;
+            link.href = el.attributes["href"].value;
+
+            clone.template = linkTemplate.cloneNode(true);
+            clone.text = clone.template.children[0].textContent;
+            clone.href = clone.template.attributes["href"];
+
+            clone.href = link.href;
+            clone.text = link.text;
+
+            clone.template.children[0].textContent = link.text;
+            clone.template.attributes["href"].value = link.href;
+
+            parentTemplate.appendChild(clone.template);
 
         }
+
+        forEach(linkClientData, appendData);
+
+        parentTemplate.removeChild(linkTemplate);
+
     }
-}]);
+
+    //sets galleryMenuTree <--- #gstligallerymenu
+    if(document.querySelector('#gstligallerymenu')){
+        var menuTree = document.querySelector('#gstligallerymenu');
+
+        var searchForm = document.querySelector('#gstli-search');
+
+        menuTree.appendChild(searchForm);
+
+        var projectContainer = document.querySelector('#custom_content ');
+
+        projectContainer.insertBefore(menuTree, projectContainer.firstChild);
+
+    }
+
+})(this, document);
 
 (function(module) {
 try {

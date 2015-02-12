@@ -161,34 +161,33 @@
             </div>
         </div>
         <!-- /subheader -->
-        <div id="custom_content" class=" span-24 curved_bottom dropshadow">
-            <!--for dev: removed standard class. will need to encapsulate styling further-->
+        <div id="custom_content" class=" span-24 curved_bottom dropshadow project-group">
+            <!-- Start GSTLI GALLERY overview -->
 
-            <!-- Start GSTLI GALLERY wrapper -->
-            <div ng-app="projectpage" ng-controller="ProjectsCtrl">
-                <div class="project--box--gradient handangular--container container">
-                    <!-- Start GSTLI GALLERY overview -->
-                    <div class="ax">
-                        <dl class="flex isw100 m0 project-group" style="background-image: {{groupImage}});">
+            <form class="search" id="gstli-search" name="form" method="get" action="http://www.google.com/cse">
+                            <input name="q" id="q" value="Search GSTLI Gallery" onclick="this.value = '';" maxlength="255" type="text" />
+                            <input type="hidden" name="hl" value="en" />
+                            <input type="hidden" name="sa" value="Search" />
+                            <input type="hidden" name="cx" value="009628008525241448883:iuid6in4wwk" />
+                            <input type="hidden" name="ie" value="UTF-8" />
+                        <div class="gstli-search-submit">
+                            <input type="submit" name="" value="Sear" />
+                        </div>
+                    </form>
 
-
-                            <a ng-repeat="p in projects" ng-href="{{p.link}}" class="projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
-                                <!--<div class="projects--info"><h1>Go to Project {{p.title}}</h1></div>-->
-                                <dd>
-                                    <h3 class="flex__item projects--button">
-                                        {{p.name}}
-                                    </h3>
-                                </dd>
-                            </a>
-                        </dl>
-                    </div>
-                    <!--End GSTLI GALLERY overview-->
-                </div>
-                <!-- End GSTLI GALLERY wrapper-->
+            <div class="flex isw100 m0 ">
 
 
+                <a href="#" class="project-template projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
+
+                    <h3 class="flex__item projects--button"></h3>
+                </a>
             </div>
-            <!-- /ng-app -->
+            <!--End GSTLI GALLERY overview-->
+        </div>
+
+        <div id="custom_clientcontent">
+            <img src="/gallaudet-template/Images/GSTLIGallery/project-group.jpg">
         </div>
         <!-- /content -->
         <div id="custom_treelistindex">
@@ -209,6 +208,20 @@
             </div>
         </div>
 
+        <div id="gstligallerymenu">
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="">Lorem
+                    </a>
+                    <ul>
+                        <li><a href="">child</a></li>
+                        <li><a href="">child</a></li>
+                        <li><a href="">child</a></li>
+                    </ul></li>
+                <li><a href="">Testing</a></li>
+                <li><a href="">Reference</a></li>
+            </ul>
+        </div>
         <span id="footer" class="span-24 prepend-top">
             <span class="span-5">
                 <span class="head">
