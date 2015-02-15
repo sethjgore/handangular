@@ -14,8 +14,7 @@
     <link rel="icon" href="./gallaudet-template/images/favicon.png" />
     <link rel="stylesheet" href="./gallaudet-template/prebuilt/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="./gallaudet-template/prebuilt/blueprint/print.css" type="text/css" media="print" />
-
-    <link rel="stylesheet" href="./gallaudet-template/prebuilt/gstli/front.css" type="text/css"/>
+     <link rel="stylesheet" type="text/css" href="./gallaudet-template/prebuilt/gstli/gstligalleryfront.css" />
     <!--[if lt IE 8]>
             <link rel="stylesheet" href="./gallaudet-template/prebuilt/blueprint/ie.css" type="text/css" media="screen, projection" />
         <![endif]-->
@@ -24,8 +23,10 @@
     <script type="text/javascript" src="./gallaudet-template/prebuilt/jquery/menu/megaHoverOver.js"></script>
     <script type="text/javascript" src="./gallaudet-template/prebuilt/jquery/menu/hoverIntent.js"></script>
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <script type="text/javascript" src="./gallaudet-template/prebuilt/gstli/gstligalleryfront.js"></script>
 
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 </head>
 
@@ -162,38 +163,33 @@
             </div>
         </div>
         <!-- /subheader -->
-        <div id="custom_content" class=" span-24 curved_bottom dropshadow project-group">
+        <div id="gstligalleryfront" class=" span-24 curved_bottom dropshadow">
             <!-- Start GSTLI GALLERY overview -->
 
-            <form class="search" id="gstli-search" name="form" method="get" action="http://www.google.com/cse">
-                            <input name="q" id="q" value="Search GSTLI Gallery" onclick="this.value = '';" maxlength="255" type="text" />
-                            <input type="hidden" name="hl" value="en" />
-                            <input type="hidden" name="sa" value="Search" />
-                            <input type="hidden" name="cx" value="009628008525241448883:iuid6in4wwk" />
-                            <input type="hidden" name="ie" value="UTF-8" />
-                        <div class="gstli-search-submit">
-                            <input type="submit" name="" value="Sear" />
-                        </div>
-                    </form>
-
-            <div class="flex isw100 m0 ">
-
-
-                <a href="#" class="project-template projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
-
-                    <h3 class="flex__item projects--button"></h3>
+            <div id="gstligalleryfront_flex">
+                <a href="#" class="project-template projects--box gstligalleryfront_link">
+                    <h3 class="flex__item gstligalleryfront_button"></h3>
                 </a>
             </div>
             <!--End GSTLI GALLERY overview-->
         </div>
 
-        <div id="custom_clientcontent">
+        <div id="gstligalleryfront_splash">
             <img src="/gallaudet-template/Images/GSTLIGallery/project-group.jpg">
         </div>
         <!-- /content -->
-        <div id="custom_treelistindex">
-            <div id="custom_treelisttitle">Staff</div>
-            <div id="custom_treelist">
+
+        <form class="search" id="gstligalleryfront_search" name="form" method="get" action="http://www.google.com/cse">
+            <input name="q" id="q" value="Search GSTLI Gallery" onclick="this.value = '';" maxlength="255" type="text" />
+            <input type="hidden" name="hl" value="en" />
+            <input type="hidden" name="sa" value="Search" />
+            <input type="hidden" name="cx" value="009628008525241448883:iuid6in4wwk" />
+            <input type="hidden" name="ie" value="UTF-8" />
+            <div class="gstli-search-submit">
+                <input type="submit" name="" value="Sear" />
+            </div>
+        </form>
+            <div id="gstligalleryfront_treelist">
                 <ul>
                     <li><a href="" class="">Thomas Horejes</a>
                     </li>
@@ -207,20 +203,26 @@
                     </li>
                 </ul>
             </div>
-        </div>
 
-        <div id="gstligallerymenu">
+        <div id="gstligalleryfront_menu">
             <ul>
-                <li><a href="">About</a></li>
+                <li><a href="">About</a>
+                </li>
                 <li><a href="">Lorem
                     </a>
                     <ul>
-                        <li><a href="">child</a></li>
-                        <li><a href="">child</a></li>
-                        <li><a href="">child</a></li>
-                    </ul></li>
-                <li><a href="">Testing</a></li>
-                <li><a href="">Reference</a></li>
+                        <li><a href="">child</a>
+                        </li>
+                        <li><a href="">child</a>
+                        </li>
+                        <li><a href="">child</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="">Testing</a>
+                </li>
+                <li><a href="">Reference</a>
+                </li>
             </ul>
         </div>
         <span id="footer" class="span-24 prepend-top">
@@ -383,9 +385,6 @@
     <!-- /container -->
     <div id="bar"></div>
 
-    <script src="gallaudet-template/PreBuilt/gstli/vendor.js"></script>
-
-    <script src="gallaudet-template/PreBuilt/gstli/project.js"></script>
 
 </body>
 

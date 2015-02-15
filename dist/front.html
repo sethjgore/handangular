@@ -14,6 +14,7 @@
     <link rel="icon" href="./gallaudet-template/images/favicon.png" />
     <link rel="stylesheet" href="./gallaudet-template/prebuilt/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="./gallaudet-template/prebuilt/blueprint/print.css" type="text/css" media="print" />
+     <link rel="stylesheet" type="text/css" href="./gallaudet-template/prebuilt/gstli/front.css" />
     <!--[if lt IE 8]>
             <link rel="stylesheet" href="./gallaudet-template/prebuilt/blueprint/ie.css" type="text/css" media="screen, projection" />
         <![endif]-->
@@ -22,11 +23,10 @@
     <script type="text/javascript" src="./gallaudet-template/prebuilt/jquery/menu/megaHoverOver.js"></script>
     <script type="text/javascript" src="./gallaudet-template/prebuilt/jquery/menu/hoverIntent.js"></script>
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <script type="text/javascript" src="./gallaudet-template/prebuilt/gstli/front.js"></script>
 
-    <!-- build:css({.tmp,app}) gallaudet-template/PreBuilt/gstli/front.css -->
-    <link rel="stylesheet" href="./gallaudet-template/PreBuilt/gstli/front.css">
-    <!-- endbuild -->
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 </head>
 
@@ -166,9 +166,9 @@
         <div id="gstligalleryfront" class=" span-24 curved_bottom dropshadow">
             <!-- Start GSTLI GALLERY overview -->
 
-            <div class="flex isw100 m0 ">
-                <a href="#" class="project-template projects--box flex__item flex flex--yb flex--spacearound  is__link--plain">
-                    <h3 class="flex__item projects--button"></h3>
+            <div id="gstligalleryfront_flex">
+                <a href="#" class="project-template projects--box gstligalleryfront_link">
+                    <h3 class="flex__item gstligalleryfront_button"></h3>
                 </a>
             </div>
             <!--End GSTLI GALLERY overview-->
@@ -189,9 +189,6 @@
                 <input type="submit" name="" value="Sear" />
             </div>
         </form>
-
-        <div id="gstligalleryfront_treelistindex">
-            <div id="custom_treelisttitle">Staff</div>
             <div id="gstligalleryfront_treelist">
                 <ul>
                     <li><a href="" class="">Thomas Horejes</a>
@@ -206,7 +203,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
 
         <div id="gstligalleryfront_menu">
             <ul>
@@ -389,123 +385,6 @@
     <!-- /container -->
     <div id="bar"></div>
 
-    <script type="text/javascript">
-    "use strict";
-
-    (function(window, document, undefined) {
-
-        document.addEventListener("DOMContentLoaded", function() {
-
-            cloneImageFromClient();
-            cloneTreeListFromClient();
-            moveGalleryMenu();
-
-
-        });
-
-        //helper function
-        var forEach = function(array, callback, scope) {
-            for (var i = 0; i < array.length; i++) {
-                callback.call(scope, array[i], i); // passes back stuff we need
-            }
-        };
-
-        var cloneImageFromClient = function() {
-            if (document.querySelector('#gstligalleryfront_splash img')) {
-
-                //gets IMG NODE <--- #gstligalleryfrontfront_splash
-                var groupImageClient = document.querySelector('#gstligalleryfront_splash img');
-                //gets TEXTCONTENT <--- IMG NODE
-                var groupImageClientSrc = groupImageClient.attributes["src"].value;
-
-                //builds URL <--- groupImageClientSrc
-                var groupImageDocUrl = "url(" + groupImageClientSrc + ")";
-
-                //gets NODE <----> .project-group
-                var groupImageDoc = document.querySelector('#gstligalleryfront');
-
-                //applies BACKGROUNDIMAGE ---> groupImageDoc NODE
-                groupImageDoc.style.backgroundImage = groupImageDocUrl;
-
-                console.log("function cloneImageFromClient --> client CMS's image is applied to the project-group node");
-            } else {
-                console.log("function cloneImageFromClient --> did not run because conditions were not met");
-            }
-        }
-
-        var cloneTreeListFromClient = function() {
-
-            if (document.querySelector('#gstligalleryfront_treelist li').childNodes) {
-                var linkTemplate = document.querySelector('.project-template');
-
-                var parentTemplate = linkTemplate.parentNode;
-
-                var linkClientData = document.querySelectorAll('#gstligalleryfront_treelist li');
-
-                var appendData = function(el, i) {
-
-                    //sets <a> <--- <li>
-                    var el = el.children[0];
-
-                    //builds link object
-                    var link = {};
-                    var clone = {};
-
-                    link.text = el.textContent;
-                    link.href = el.attributes["href"].value;
-
-                    clone.template = linkTemplate.cloneNode(true);
-                    clone.text = clone.template.children[0].textContent;
-                    clone.href = clone.template.attributes["href"];
-
-                    clone.href = link.href;
-                    clone.text = link.text;
-
-                    clone.template.children[0].textContent = link.text;
-                    clone.template.attributes["href"].value = link.href;
-
-                    parentTemplate.appendChild(clone.template);
-
-                }
-
-                forEach(linkClientData, appendData);
-
-                parentTemplate.removeChild(linkTemplate);
-
-                console.log("function cloneTreeListFromClient --> client CMS's treelist is cloned & populated as the gallery projects");
-
-            } else {
-                console.log("function cloneTreeListFromClient --> did not run because conditions were not met");
-            }
-        }
-
-
-        var moveGalleryMenu = function() {
-            //sets galleryMenuTree <--- #gstligallerymenu
-            if (document.querySelector('#gstligalleryfront_menu')) {
-                var menuTree = document.querySelector('#gstligalleryfront_menu');
-
-                var searchForm = document.querySelector('#gstligalleryfront_search');
-
-                menuTree.appendChild(searchForm);
-
-                var projectContainer = document.querySelector('#gstligalleryfront');
-
-                projectContainer.insertBefore(menuTree, projectContainer.firstChild);
-
-                console.log("function moveGalleryMenu --> client CMS's search & menu are moved to the gallery container");
-
-            } else {
-                console.log("function moveGalleryMenu --> did not run because conditions were not met");
-            }
-        }
-
-    })(this, document);
-    </script>
-    <!-- build:js gallaudet-template/PreBuilt/gstli/vendor.js -->
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- endbuild -->
 
 </body>
 

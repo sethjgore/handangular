@@ -1,0 +1,162 @@
+#gstligalleryfront {
+    background-size: cover
+}
+#gstligalleryfront_flex {
+    display: flex;
+    display: -webkit-flex;
+    margin: 0;
+}
+//hides CMS generated tags
+#gstligalleryfront_breadcrumb {
+    display: none
+}
+#gstligalleryfront_breadcrumb a {
+    color: #989898
+}
+#gstligalleryfront_breadcrumb a:hover {
+    color: #688fbb
+}
+#gstligalleryfront_mainmenu {
+    display: none
+}
+#gstligalleryfront_treelist {
+    display: none
+}
+#gstligalleryfront_splash {
+    display: none
+}
+#gstligalleryfront_search {
+    display: inline-block;
+    float: right;
+}
+#gstligalleryfront_search #q {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border: none;
+    padding: 0.4rem;
+    padding-right: 0rem;
+}
+#gstligalleryfront_search .gstli-search-submit {
+    margin-left: -.3rem;
+    margin-right: 0.9rem;
+    display: inline-block;
+}
+#gstligalleryfront_search .gstli-search-submit input {
+    border: none;
+    background: url('../../Images/GSTLIGallery/search-icon.svg') no-repeat center center, hsla(202, 100%, 65%, 0.47);
+    background-size: 75%;
+    padding: 0.4rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: .5rem;
+    width: 2rem;
+    color: hsla(0, 0%, 0%, 0);
+}
+#gstligalleryfront_menu {
+    background: hsla(0, 0%, 55%, 0.15);
+}
+#gstligalleryfront_menu ul {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 15px 4px 17px 0;
+    list-style: none;
+}
+#gstligalleryfront_menu ul li {
+    font: 300 16px/18px sans-serif;
+    display: inline-block;
+    margin-right: -4px;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+    color: hsl(0, 0%, 29%);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#gstligalleryfront_menu ul li:hover {
+    background: hsla(0, 100%, 100%, 0.49);
+}
+#gstligalleryfront_menu ul li ul {
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 150px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transiton: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    -ms-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    -transition: opacity 0.4s;
+}
+#gstligalleryfront_menu ul li ul li {
+    background: hsla(0, 0%, 55%, 0.15);
+    display: block;
+    color: hsl(0, 0%, 29%);
+}
+#gstligalleryfront_menu ul li ul li:hover {
+    background: hsla(0, 100%, 100%, 0.30);
+}
+#gstligalleryfront_menu ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+#gstligalleryfront_menu ul li:hover ul li:last-child {
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+#gstligalleryfront_menu a {
+    color: hsl(0, 0%, 52%);
+    text-decoration: none;
+}
+#gstligalleryfront_menu ul li:hover > a {
+    text-decoration: underline;
+}
+.gstligalleryfront_link {
+    text-decoration: none;
+    color: hsl(0, 0%, 20%);
+    overflow: hidden;
+    height: 30rem;
+    flex: 1;
+    -webkit-flex: 1;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    display: -webkit-flex;
+    display: flex;
+}
+.gstligalleryfront_link, .gstligalleryfront_link:hover, .gstligalleryfront_link:hover .gstligalleryfront_button {
+    transition: all .3s ease-out;
+}
+.gstligalleryfront_link:hover .gstligalleryfront_button, .gstligalleryfront_link:active .gstligalleryfront_button {
+    background: #8FC3EA;
+    color: white;
+    -webkit-transform: translateY(-3rem);
+    transform: translateY(-3rem);
+}
+.gstligalleryfront_button {
+    transition: all 0.5s ease-out;
+    border-radius: 0.8rem;
+    background: hsl(0, 100%, 100%);
+    padding: 0.4rem;
+    text-decoration: none;
+    font-family: Arial;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 500;
+    color: hsl(206, 68%, 74%);
+    font-size: 1.5em;
+    line-height: 1;
+}
