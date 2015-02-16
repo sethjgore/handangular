@@ -54,7 +54,7 @@
     color: hsla(0, 0%, 0%, 0);
 }
 #gstligalleryfront_menu {
-    background: hsla(0, 0%, 55%, 0.26);
+    background: hsl(0, 0%, 92%);
 }
 #gstligalleryfront_menu ul {
     text-align: left;
@@ -78,7 +78,7 @@
     transition: all 0.2s;
 }
 #gstligalleryfront_menu ul li:hover {
-    background: hsla(0, 100%, 100%, 0.69);
+    background: hsl(0, 0%, 100%);
 }
 #gstligalleryfront_menu ul li ul {
     padding: 0;
@@ -99,12 +99,12 @@
     -transition: opacity 0.4s;
 }
 #gstligalleryfront_menu ul li ul li {
-    background: hsla(0, 0%, 55%, 0.15);
+    background: hsl(0, 0%, 92%);
     display: block;
     color: hsl(0, 0%, 29%);
 }
 #gstligalleryfront_menu ul li ul li:hover {
-    background: hsla(0, 100%, 100%, 0.71);
+    background: hsl(0, 0%, 100%);
 }
 #gstligalleryfront_menu ul li:hover ul {
     display: block;
@@ -116,7 +116,7 @@
     border-bottom-right-radius: .5rem;
 }
 #gstligalleryfront_menu a {
-    color: hsl(0, 0%, 5%);
+    color: black;
     text-decoration: none;
 }
 #gstligalleryfront_menu ul li:hover > a {
@@ -124,7 +124,7 @@
 }
 .gstligalleryfront_link {
     text-decoration: none;
-    color: hsl(0, 0%, 20%);
+    color: white;
     overflow: hidden;
     height: 30rem;
     flex: 1;
