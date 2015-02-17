@@ -6,7 +6,7 @@
     display: -webkit-flex;
     margin: 0;
 }
-//hides CMS generated tags
+
 #gstligalleryfront_breadcrumb {
     display: none
 }

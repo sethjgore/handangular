@@ -132,15 +132,13 @@
                   console.log(["section.video is empty ", sectionList[1].innerHTML == ""])
                   console.log(["section.content is empty  ", sectionList[0].textContent == ""])
 
-                  if (sectionList[1].innerHTML == "" && sectionList[0].innerHTML == ""){
-                    mediaLink = "";
+                  if (sectionList[1].innerHTML == "" && sectionList[0].innerHTML == "") {
+                      mediaLink = "";
 
-                  }
-                  else if (sectionList[1].innerHTML == "") {
-                    mediaLink = "textonly";
-                  }
-                  else if (isBlank(sectionList[0].textContent)) {
-                    mediaLink = "videoonly";
+                  } else if (sectionList[1].innerHTML == "") {
+                      mediaLink = "textonly";
+                  } else if (isBlank(sectionList[0].textContent)) {
+                      mediaLink = "videoonly";
                   }
 
                   $scope.projectsTemp[0].sections.push({
@@ -172,80 +170,102 @@
                   console.log(["section.video is empty  ", sectionList[2].innerHTML == ""])
                   console.log(["section.content is empty  ", sectionList[1].innerHTML == ""])
 
-                  if (sectionList[2].innerHTML == "" && sectionList[1].innerHTML == ""){
-                    mediaLink = "";
+                  if (sectionList[2].innerHTML == "" && sectionList[1].innerHTML == "") {
+                      mediaLink = "";
 
-                  }
-                  else if (sectionList[2].innerHTML == "") {
-                    mediaLink = "textonly";
-                  }
-                  else if (sectionList[1].innerHTML == "") {
-                    mediaLink = "videoonly";
+                  } else if (sectionList[2].innerHTML == "") {
+                      mediaLink = "textonly";
+                  } else if (sectionList[1].innerHTML == "") {
+                      mediaLink = "videoonly";
                   }
 
 
 
-              $scope.projectsTemp[0].sections.push({
-                  "title": node.firstChild.data,
-                  "subtitle": sectionList[0].textContent,
-                  "content": sectionList[1].textContent,
-                  "video": sectionList[2].innerHTML,
-                  "mediaLink": mediaLink,
-                  "coords": {
-                      "x": sectionList[3].innerHTML,
-                      "y": sectionList[4].innerHTML,
-                  },
-                  "show": false
-              });
+                  $scope.projectsTemp[0].sections.push({
+                      "title": node.firstChild.data,
+                      "subtitle": sectionList[0].textContent,
+                      "content": sectionList[1].textContent,
+                      "video": sectionList[2].innerHTML,
+                      "mediaLink": mediaLink,
+                      "coords": {
+                          "x": sectionList[3].innerHTML,
+                          "y": sectionList[4].innerHTML,
+                      },
+                      "show": false
+                  });
 
-              console.log(["this is being pushed", $scope.projectsTemp]);
+                  console.log(["this is being pushed", $scope.projectsTemp]);
+
+              }
 
           }
 
       }
 
-  }
 
-  //move the breadcrumb
 
-  var moveBreadcrumbNode = function() {
+      //move the breadcrumb
 
-      var e = document.querySelector('#gstligallery_content');
+      var moveBreadcrumbNode = function() {
 
-      if (document.querySelector('#gstligallery_breadcrumb')) {
-          var node = document.querySelector('#gstligallery_breadcrumb');
-          var fc = e.firstChild;
+          var e = document.querySelector('#gstligallery_content');
 
-          console.log(["---=", e, ">>>=---", node, "--=>>>?", fc]);
+          if (document.querySelector('#gstligallery_breadcrumb')) {
+              var node = document.querySelector('#gstligallery_breadcrumb');
+              var fc = e.firstChild;
 
-          e.insertBefore(node, fc);
-          var f = e;
+              console.log(["---=", e, ">>>=---", node, "--=>>>?", fc]);
 
-          console.log(f.firstChild.classList.add('moved'));
+              e.insertBefore(node, fc);
+              var f = e;
+
+              console.log(f.firstChild.classList.add('moved'));
+          }
       }
-  }
 
-  moveBreadcrumbNode();
+      moveBreadcrumbNode();
 
 
-  console.log($scope.projects2);
-  console.log($scope.projects)
+      var moveGalleryMenu = function() {
+          //sets galleryMenuTree <--- #gstligallerymenu
+          if (document.querySelector('#gstligalleryproject_menu')) {
+              var menuTree = document.querySelector('#gstligalleryproject_menu');
 
-  $scope.projects = $scope.projectsTemp;
+              var searchForm = document.querySelector('#gstligalleryproject_search');
 
-  $scope.hover = function(node) {
-      return node.show = !node.show;
-  };
+              menuTree.appendChild(searchForm);
 
-  $scope.type = 'video';
+              var projectContainer = document.querySelector('#gstligallery_content');
 
-  $scope.project = $scope.projects[$stateParams.project];
-  $scope.projectIndex = $stateParams.project;
-  $scope.sectionIndex = $stateParams.section;
+              projectContainer.insertBefore(menuTree, projectContainer.firstChild);
 
-  if ($stateParams.section) {
-      $scope.section = $scope.project.sections[$stateParams.section];
-  };
+              console.log("function moveGalleryMenu --> client CMS's search & menu are moved to the gallery container");
+
+          } else {
+              console.log("function moveGalleryMenu --> did not run because conditions were not met");
+          }
+      }
+
+      moveGalleryMenu();
+
+      console.log($scope.projects2);
+      console.log($scope.projects)
+
+      $scope.projects = $scope.projectsTemp;
+
+      $scope.hover = function(node) {
+          return node.show = !node.show;
+      };
+
+      $scope.type = 'video';
+
+      $scope.project = $scope.projects[$stateParams.project];
+      $scope.projectIndex = $stateParams.project;
+      $scope.sectionIndex = $stateParams.section;
+
+      if ($stateParams.section) {
+          $scope.section = $scope.project.sections[$stateParams.section];
+      };
 
 
   }]);
