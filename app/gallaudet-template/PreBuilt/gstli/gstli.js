@@ -233,7 +233,11 @@
 
               var searchForm = document.querySelector('#gstligalleryproject_search');
 
-              menuTree.appendChild(searchForm);
+              if(searchForm){
+                menuTree.appendChild(searchForm);
+              }else{
+                console.log("search form does not exist");
+              }
 
               var projectContainer = document.querySelector('#gstligallery_content');
 
