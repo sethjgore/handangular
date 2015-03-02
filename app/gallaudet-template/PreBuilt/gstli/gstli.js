@@ -144,7 +144,7 @@
                   $scope.projectsTemp[0].sections.push({
                       "title": "",
                       "subtitle": node.firstChild.data,
-                      "content": sectionList[0].textContent,
+                      "content": $sce.trustAsHtml(sectionList[0].innerHTML),
                       "video": sectionList[1].innerHTML,
                       "mediaLink": mediaLink,
                       "coords": {
@@ -184,7 +184,7 @@
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
                       "subtitle": sectionList[0].textContent,
-                      "content": sectionList[1].textContent,
+                      "content": $sce.trustAsHtml(sectionList[1].innerHTML),
                       "video": sectionList[2].innerHTML,
                       "mediaLink": mediaLink,
                       "coords": {
@@ -266,6 +266,8 @@
       $scope.project = $scope.projects[$stateParams.project];
       $scope.projectIndex = $stateParams.project;
       $scope.sectionIndex = $stateParams.section;
+
+
 
       if ($stateParams.section) {
           $scope.section = $scope.project.sections[$stateParams.section];

@@ -144,7 +144,7 @@
                   $scope.projectsTemp[0].sections.push({
                       "title": "",
                       "subtitle": node.firstChild.data,
-                      "content": sectionList[0].textContent,
+                      "content": $sce.trustAsHtml(sectionList[0].innerHTML),
                       "video": sectionList[1].innerHTML,
                       "mediaLink": mediaLink,
                       "coords": {
@@ -184,7 +184,7 @@
                   $scope.projectsTemp[0].sections.push({
                       "title": node.firstChild.data,
                       "subtitle": sectionList[0].textContent,
-                      "content": sectionList[1].textContent,
+                      "content": $sce.trustAsHtml(sectionList[1].innerHTML),
                       "video": sectionList[2].innerHTML,
                       "mediaLink": mediaLink,
                       "coords": {
@@ -266,6 +266,8 @@
       $scope.project = $scope.projects[$stateParams.project];
       $scope.projectIndex = $stateParams.project;
       $scope.sectionIndex = $stateParams.section;
+
+
 
       if ($stateParams.section) {
           $scope.section = $scope.project.sections[$stateParams.section];
@@ -366,7 +368,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/projects.list.preview.html',
-    '<div class="ax"><div class="list--preview"><div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb"><h1 class="mt15 mb15 is__text--c-white">{{section.title}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: \'0\', type: \'video\'})">✕</div></div><div ng-show="$stateParams.type == \'video\';" class="section--video--box flex flex__direction--col"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-show="$stateParams.type == \'videoonly\';" class="section--video--box flex flex__direction--col"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-show="$stateParams.type == \'text\';" class="list--preview__content"><p>{{section.content}}</p></div><div ng-show="$stateParams.type == \'textonly\';" class="list--preview__content"><p>{{section.content}}</p></div><div ng-show="$stateParams.type == \'\'" class="list--preview__content"><h2>Oops!</h2><p class="list--preview__nomedia">We haven\'t uploaded any content just yet. Coming soon, though!</p></div></div></div>');
+    '<div class="ax"><div class="list--preview"><div class="list--preview__header is__background--c-vegasgold flex flex--y flex--xsb"><h1 class="mt15 mb15 is__text--c-white">{{section.title}}</h1><a class="section-box__icon--holder" ng-click="$state.go(\'projects.preview\', {project: projectIndex, section: $stateParams.section, type: oppositeType($stateParams.type)}, {notify : \'false\'})"><div class="section-box__icon text" ng-show="$stateParams.type == \'video\'"></div><div class="section-box__icon video" ng-show="$stateParams.type == \'text\'"></div></a><div class="list--preview__close is__text--size--micro is__text--c-maroon" ng-click="$state.go(\'projects.index\', {project: projectIndex, section: \'0\', type: \'video\'})">✕</div></div><div ng-show="$stateParams.type == \'video\';" class="section--video--box flex flex__direction--col"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-show="$stateParams.type == \'videoonly\';" class="section--video--box flex flex__direction--col"><div class="section--video--box flex"><iframe ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></div><div ng-bind-html="section.content" ng-show="$stateParams.type == \'text\';" class="list--preview__content"></div><div ng-bind-html="section.content" ng-show="$stateParams.type == \'textonly\';" class="list--preview__content"></div><div ng-show="$stateParams.type == \'\'" class="list--preview__content"><h2>Oops!</h2><p class="list--preview__nomedia">We haven\'t uploaded any content just yet. Coming soon, though!</p></div></div></div>');
 }]);
 })();
 

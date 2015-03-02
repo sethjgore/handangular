@@ -24,13 +24,11 @@
 
         </div>
 
-        <div ng-show="$stateParams.type == 'text';" class="list--preview__content">
-            <p>{{section.content}}</p>
+        <div ng-bind-html="section.content" ng-show="$stateParams.type == 'text';" class="list--preview__content">
 
         </div>
 
-        <div ng-show="$stateParams.type == 'textonly';" class="list--preview__content">
-            <p>{{section.content}}</p>
+        <div ng-bind-html="section.content" ng-show="$stateParams.type == 'textonly';" class="list--preview__content">
         </div>
 
         <!--<div class="section-box__more-holder is__background--c-vegasgold px7 py5 is__text--size--micro is__text--c-white is__text--right">
