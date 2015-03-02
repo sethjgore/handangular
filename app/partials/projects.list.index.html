@@ -13,6 +13,5 @@
         <iframe ng-hide="type == 'text'" ng-src="{{getLink(section.video)}}" width="100%" height="20rem" class="section--video flex__item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 
-    <p ng-hide="$stateParams.type == 'video'">
-    {{section.content}}</p>
+    <div ng-bind-html="section.content" ng-hide="$stateParams.type == 'video'"></div>
 </div>
