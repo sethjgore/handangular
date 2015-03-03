@@ -27442,7 +27442,7 @@ angular.module('ngAnimate', ['ng'])
       }
 
       $scope.getLink = function(token) {
-          return $sce.trustAsResourceUrl('//www.youtube.com/embed/' + token);
+          return $sce.trustAsResourceUrl('//www.youtube.com/embed/' + token + '?rel=0&autoplay=1&showinfo=0&modestbranding&theme=light&autohide=1');
       }
 
 
